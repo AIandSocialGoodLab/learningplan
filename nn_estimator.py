@@ -122,8 +122,21 @@ input_vectors = torch.Tensor(input_vectors)
 values = torch.Tensor(values)
 
 """
-TODO: Train network on above training data using SGD + momentum, or Adam
+Train network on above training data using SGD + momentum, with an MSE loss function
+- Hyperparameters still tentative
 """
+dataset = torch.utils.data.TensorDataset(input_vectors, values)
+loader = torch.utils.data.DataLoader(dataset, batch_size=25, shuffle=True)
+optimizer = optim.SGD(Neural_Net_Estimator.parameters(), lr=0.1, momentum=0.3)
+criterion = nn.MSELoss()
+
+for epoch in range(25):
+	for batch_input, batch_values in loader:
+		optimizer.zero_grad()
+		loss = criterion(batch_input, batch_values)
+		loss.backward()
+		optimizer.step()
+
 
 #Estimate time taken to learn KPs from historical data
 sum_times = []
