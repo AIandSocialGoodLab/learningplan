@@ -24,6 +24,7 @@ def generate_random_dag(nodes, density):
             if not (nx.is_directed_acyclic_graph(G) and current_degree <= edges):
                 G.remove_edge(a,b)
     return G
+
 """
 Feature space should include Student id, ethnicity, gender, age, etc.
 Data should include set of knowledge points students already know; Trace of learning: e.g. (D, 3mins), (E, 5mins) .etc. 
