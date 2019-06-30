@@ -53,7 +53,57 @@ for j in range(len(student_records.index)):
 		KP_times[encountered_kp] = new_time_sum/new_count
 
 
-#Define a dataset for DQN, by storing the transitions
+#Define the replay buffer class
+#Store each state transition
+#Here, a state is a binary vector describing the KPs learned so far, and the remaining budget.
+class DQNDataset(Dataset):
+	#TODO: Determine the correct way to normalize the budget constraint.
+
+	def __init__(self, student_records):
+		self.transition_num = 0
+		self.current_state = []
+		self.next_KP = []
+
+		for j in range(len(student_records.index)):
+			current_row = student_records.iloc[j]
+			KPs_learned = current_row['Trace of Learning']
+			time_taken = current_row['Learning Time']
+			budget_constraint = sum(time_taken)
+
+			current_state_vec = []
+			for i in range(num_KP):
+				current_state_vec.append(0)
+			current_state_vec.append(budget_constraint)
+
+			for k in range(len(KPs_learned)):
+				additional_KP = KPs_learned[k]
+				used_time = time_taken[k]
+
+				self.current_state.append(current_state_vec)
+				self.next_KP.append(additional_KP)
+
+				current_state_vec = current_state_vec.copy()
+				current_state_vec[additional_KP] = 1
+				current_state_vec[len(current_state_vec) - 1] -= used_time  ##Updating budget
+
+	def __getitem__(self, index):
+		return last_state[index], next_KP[index]
+
+	def __len__(self):
+		return self.transition_num
+
+"""
+Define and train the Q-network.
+Here, the inputs are:
+- The binary vector describing the KPs learned so far.
+- The budget constraint
+- A one-hot vector giving the next KP.
+"""
+
+
+
+
+
 
 
 
