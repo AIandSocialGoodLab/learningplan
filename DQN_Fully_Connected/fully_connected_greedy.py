@@ -166,15 +166,22 @@ for epoch in range(5):
 
 print("Training complete")
 
-#Use trained NN to find optimal plan
-#TODO: Fix this method
-def find_optimal_plan(budget_constraint):
-	total_utility = 0.0
-	KP_sequence = []
+####TEST####
+test_state = torch.zeros([num_KP + 1], dtype=torch.float32)
+test_state[num_KP] = 300
+ans = Q_network(test_state)
+print(ans)
+print(ans.shape)
 
-	#Data for search
+"""
+
+#Use trained NN to find optimal plan
+def find_optimal_plan(budget):
+	KP_sequence = []
+	total_utility = 0.0
 	current_state = torch.zeros([num_KP + 1], dtype=torch.float32)
-	current_state[num_KP] = budget_constraint
+	current_state[num_KP] = budget
+
 	num_prereqs_left = []
 	for i in range(num_KP):
 		num_prereqs_left.append(0)
@@ -185,47 +192,41 @@ def find_optimal_plan(budget_constraint):
 	for i in range(num_KP):
 		if num_prereqs_left[i] == 0:
 			frontier.add(i)
-	budget = budget_constraint
 
-	while budget > 0 and len(frontier) > 0:  #check that frontier is nonempty
+	while budget > 0:
 		action_values = Q_network(current_state)
 		best_kp = -1
 		max_val = 0
 
-		loop_count = 0
 		for next_KP in frontier:
-			loop_count += 1
+			if KP_times[next_KP] > budget:
+				continue
 			new_val = action_values[i].item()
-			if(new_val < 0):
-				print("Something is wrong, new_val is negative")
 			if new_val >= max_val:
 				max_val = new_val
 				best_kp = next_KP
 
 		if best_kp == -1:
-			print("current frontier:", frontier)
-			print('length of frontier:', len(frontier))
-			print("loopcount:", loopcount)
+			break #No more KPs in the frontier can be used
 
 		#Update plan and utility
 		KP_sequence.append(best_kp)
 		total_utility += KP_utils[best_kp]
-
-		#Update data for search
 		current_state[best_kp] = 1
 		current_state[num_KP] -= KP_times[best_kp]
-		for next_KP in prereq_adj_list[best_kp]:
-			num_prereqs_left[next_KP] -= 1
-			if num_prereqs_left[next_KP] == 0:
-				frontier.add(next_KP)
-		if best_kp == -1:
-			print("Bad: best_kp is -1")
-			print("best_kp:", best_kp)
-			print("max_val:", max_val)
+
+		#Update indegree counts and frontier
+		for j in prereq_adj_list[i]:
+			num_prereqs_left[j] -= 1
+			if num_prereqs_left[j] == 0:
+				frontier.add(j)
 		frontier.remove(best_kp)
+
+		#Update budget
 		budget -= KP_times[best_kp]
 
 	return total_utility, KP_sequence
+
 
 #Performance of DQN is first compared to training examples (the random policy)
 ratios = []
@@ -245,8 +246,7 @@ for j in range(len(student_records.index)):
 
 print(ratios)
 
-
 #TODO: Compare performance of DQN to ILP
 
-
+"""
 
