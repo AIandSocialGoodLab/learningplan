@@ -31,7 +31,8 @@ for i in range(num_KP):
 	prereq_adj_list.append([])
 for j in range(len(prereq_df.index)):
 	current_row = prereq_df.iloc[j]
-	prereq_adj_list[current_row.target].append(current_row.source)
+	#current_row.source is the prerequisite of current_row.target
+	prereq_adj_list[current_row.source].append(current_row.target)
 
 #Read generated data
 student_records = pd.read_csv('generated_data.csv')
@@ -141,7 +142,7 @@ optimizer = optim.SGD(Q_network.parameters(), lr=0.01, momentum=0.4)
 loss_fn = nn.MSELoss()
 
 for epoch in range(5):
-	print("Starting %dth epoch" % epoch)
+	print("Starting epoch %d" % epoch)
 	for current_state, next_state, new_KP in replay_buffer:
 		target = 0
 		action_values = Q_network(next_state)
@@ -165,8 +166,59 @@ for epoch in range(5):
 
 print("Training complete")
 
+#Use trained NN to find optimal plan
+def find_optimal_plan(budget_constraint):
+	total_utility = 0
+	KP_sequence = []
 
-#Testing on this graph, for various budget constraints
+	#Data for search
+	current_state = torch.zeros([num_KP + 1], dtype=torch.float32)
+	current_state[num_KP] = budget_constraint
+	num_prereqs_left = []
+	for i in range(num_KP):
+		for j in prereq_adj_list[i]:
+			num_prereqs_left[j] += 1
+	frontier = {}
+	for i in range(num_KP):
+		if num_prereqs_left[i] == 0:
+			frontier.add(i)
+	budget = budget_constraint
+
+	while budget_constraint > 0 and :  #check that frontier is nonempty
+		action_values = Q_network(current_state)
+		best_kp = -1
+		max_val = 0
+		for next_KP in frontier:
+			new_val = action_values[0, i].item()
+			if new_val > max_val:
+				max_val = new_val:
+				best_kp = next_KP
+
+		#Update plan and utility
+		KP_sequence.append(best_kp)
+		total_utility += KP_utils[best_kp]
+
+		#Update data for search
+		current_state[best_kp] = 1
+		for next_KP in prereq_adj_list[best_kp]:
+			num_prereqs_left[next_KP] -= 1
+			if num_prereqs_left[next_KP] == 0:
+				frontier.add(next_KP)
+		budget -= KP_times[best_kp]
+
+	return total_utility, KP_sequence
+
+#Performance of DQN is first compared to training examples
+ratios = []
+for j in range(len(student_records.index)):
+	current_row = student_records.iloc[j]
+	total_time = sum(current_row['Learning Time'])
+
+
+
+
+
+#TODO: Compare performance of DQN to ILP
 
 
 
