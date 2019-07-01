@@ -147,7 +147,7 @@ for epoch in range(5):
 		target = 0
 		action_values = Q_network(next_state)
 		for i in range(num_KP):
-			#action_values has shape [1, 25], rather than [25]
+			#POTENTIAL BUG: action_values has shape [1, 25], rather than [25]
 			target = max(target, action_values[0, i].item())
 		target += KP_utils[new_KP]
 		#At this point, target is a scalar, rather than a 
@@ -167,8 +167,9 @@ for epoch in range(5):
 print("Training complete")
 
 #Use trained NN to find optimal plan
+#TODO: Fix this method
 def find_optimal_plan(budget_constraint):
-	total_utility = 0
+	total_utility = 0.0
 	KP_sequence = []
 
 	#Data for search
@@ -176,23 +177,35 @@ def find_optimal_plan(budget_constraint):
 	current_state[num_KP] = budget_constraint
 	num_prereqs_left = []
 	for i in range(num_KP):
+		num_prereqs_left.append(0)
+	for i in range(num_KP):
 		for j in prereq_adj_list[i]:
 			num_prereqs_left[j] += 1
-	frontier = {}
+	frontier = set()
 	for i in range(num_KP):
 		if num_prereqs_left[i] == 0:
 			frontier.add(i)
 	budget = budget_constraint
 
-	while budget_constraint > 0 and :  #check that frontier is nonempty
+	while budget > 0 and len(frontier) > 0:  #check that frontier is nonempty
 		action_values = Q_network(current_state)
 		best_kp = -1
 		max_val = 0
+
+		loop_count = 0
 		for next_KP in frontier:
-			new_val = action_values[0, i].item()
-			if new_val > max_val:
-				max_val = new_val:
+			loop_count += 1
+			new_val = action_values[i].item()
+			if(new_val < 0):
+				print("Something is wrong, new_val is negative")
+			if new_val >= max_val:
+				max_val = new_val
 				best_kp = next_KP
+
+		if best_kp == -1:
+			print("current frontier:", frontier)
+			print('length of frontier:', len(frontier))
+			print("loopcount:", loopcount)
 
 		#Update plan and utility
 		KP_sequence.append(best_kp)
@@ -200,22 +213,37 @@ def find_optimal_plan(budget_constraint):
 
 		#Update data for search
 		current_state[best_kp] = 1
+		current_state[num_KP] -= KP_times[best_kp]
 		for next_KP in prereq_adj_list[best_kp]:
 			num_prereqs_left[next_KP] -= 1
 			if num_prereqs_left[next_KP] == 0:
 				frontier.add(next_KP)
+		if best_kp == -1:
+			print("Bad: best_kp is -1")
+			print("best_kp:", best_kp)
+			print("max_val:", max_val)
+		frontier.remove(best_kp)
 		budget -= KP_times[best_kp]
 
 	return total_utility, KP_sequence
 
-#Performance of DQN is first compared to training examples
+#Performance of DQN is first compared to training examples (the random policy)
 ratios = []
 for j in range(len(student_records.index)):
 	current_row = student_records.iloc[j]
-	total_time = sum(current_row['Learning Time'])
+	total_time = sum(current_row['Learning Time']) #this is the budget constraint
 
+	dqn_utility, dqn_sequence = find_optimal_plan(total_time)
 
+	#find utility obtained by simulated student
+	student_utility = 0
+	learning_trace = current_row['Trace of Learning']
+	for kp in learning_trace:
+		student_utility += KP_utils[kp]
 
+	ratios.append(dqn_utility/student_utility)
+
+print(ratios)
 
 
 #TODO: Compare performance of DQN to ILP
