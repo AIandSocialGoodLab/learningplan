@@ -2,6 +2,7 @@ import random
 import numpy as np
 import pandas as pd
 import ast
+import copy
 import torch
 from torch import nn
 from torch import optim
@@ -126,54 +127,49 @@ def create_q_network():
 						 nn.ReLU(),
 						 nn.Linear(50, 50),
 						 nn.ReLU(),
-						 nn.Linear(50, 50),
-						 nn.ReLU(),
-						 nn.Linear(50, 50),
-						 nn.ReLU(),
 						 nn.Linear(50, num_KP),
 						 nn.ReLU())
+
+#Define Q_network and target_network
 Q_network = create_q_network()
-#TODO: See the effect of an additional target network on performance
+target_network = copy.deepcopy(Q_network)
+target_count = 300
 
 #Training
 transition_list = DQNDataset(student_records)
 replay_buffer = DataLoader(dataset=transition_list, batch_size=1, shuffle=True)
-optimizer = optim.SGD(Q_network.parameters(), lr=0.01, momentum=0.4)
+optimizer = optim.SGD(Q_network.parameters(), lr=0.0001, momentum=0.4)
 loss_fn = nn.MSELoss()
+trans_count = 0
 
-for epoch in range(5):
+for epoch in range(15):
 	print("Starting epoch %d" % epoch)
 	for current_state, next_state, new_KP in replay_buffer:
+		current_state = current_state[0]
+		next_state = next_state[0]
+		new_KP = new_KP[0]
+
+		if trans_count == target_count:
+			target_network = copy.deepcopy(Q_network)
+			trans_count = 0
+
 		target = 0
+		#action_values = target_network(next_state)
 		action_values = Q_network(next_state)
 		for i in range(num_KP):
-			#POTENTIAL BUG: action_values has shape [1, 25], rather than [25]
-			target = max(target, action_values[0, i].item())
+			target = max(target, action_values[i].item())
 		target += KP_utils[new_KP]
-		#At this point, target is a scalar, rather than a 
-		#Pytorch tensor. It is not connected to Q_network. 
-		#Therefore, backpropagation will not cause gradients 
-		#to go through target.
 
-		#Required in order to use loss_fn
-		target = torch.tensor([target], dtype=torch.float32)
-
+		#Required to convert from scalar to tensor to use loss_fn
+		target = torch.tensor(target, dtype=torch.float32)
 		prediction = Q_network(current_state)
-		loss = loss_fn(prediction[0, new_KP], target)
+		loss = loss_fn(prediction[new_KP], target)
 		optimizer.zero_grad()
 		loss.backward()
 		optimizer.step()
+		trans_count += 1
 
 print("Training complete")
-
-####TEST####
-test_state = torch.zeros([num_KP + 1], dtype=torch.float32)
-test_state[num_KP] = 300
-ans = Q_network(test_state)
-print(ans)
-print(ans.shape)
-
-"""
 
 #Use trained NN to find optimal plan
 def find_optimal_plan(budget):
@@ -247,6 +243,3 @@ for j in range(len(student_records.index)):
 print(ratios)
 
 #TODO: Compare performance of DQN to ILP
-
-"""
-
