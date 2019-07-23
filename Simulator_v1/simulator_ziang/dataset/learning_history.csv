@@ -1,0 +1,1163 @@
+,Student_ID,Action_Types,Action_Time,Cur_Proficiency
+0,000,Prior Assessment Test,90,"[0, 2, 0, 0, 2]"
+1,000,read textbook,1,
+2,000,watch video,9,
+3,000,read textbook,3,
+4,000,watch video,46,
+5,000,watch video,12,
+6,000,read textbook,12,
+7,000,take assessment test,2,"[2, 3, 3, 4, 4]"
+8,000,Final Exam,90,"[2, 3, 3, 4, 4]"
+9,,,,
+10,001,Prior Assessment Test,90,"[0, 0, 2, 1, 0]"
+11,001,read textbook,1,
+12,001,take assessment test,57,"[0, 0, 3, 1, 1]"
+13,001,read textbook,1,
+14,001,take assessment test,52,"[0, 0, 4, 1, 2]"
+15,001,watch video,49,
+16,001,take assessment test,38,"[1, 0, 4, 4, 2]"
+17,001,watch video,11,
+18,001,watch video,4,
+19,001,read textbook,9,
+20,001,read textbook,2,
+21,001,take assessment test,10,"[3, 0, 4, 4, 4]"
+22,001,Final Exam,90,"[3, 0, 4, 4, 4]"
+23,,,,
+24,002,Prior Assessment Test,90,"[1, 1, 2, 0, 0]"
+25,002,read textbook,44,
+26,002,read textbook,1,
+27,002,take assessment test,29,"[1, 1, 4, 1, 0]"
+28,002,take assessment test,60,"[1, 1, 4, 2, 0]"
+29,002,watch video,13,
+30,002,watch video,2,
+31,002,read textbook,2,
+32,002,watch video,9,
+33,002,read textbook,8,
+34,002,Final Exam,90,"[2, 1, 4, 4, 2]"
+35,,,,
+36,003,Prior Assessment Test,90,"[0, 0, 1, 1, 0]"
+37,003,take assessment test,5,"[0, 0, 1, 2, 0]"
+38,003,read textbook,54,
+39,003,take assessment test,15,"[0, 0, 1, 3, 1]"
+40,003,read textbook,31,
+41,003,take assessment test,3,"[0, 0, 2, 4, 3]"
+42,003,read textbook,1,
+43,003,take assessment test,9,"[0, 0, 4, 4, 4]"
+44,003,watch video,45,
+45,003,watch video,7,
+46,003,Final Exam,90,"[2, 2, 4, 4, 4]"
+47,,,,
+48,004,Prior Assessment Test,90,"[1, 2, 2, 1, 0]"
+49,004,watch video,55,
+50,004,take assessment test,11,"[2, 3, 2, 3, 0]"
+51,004,watch video,1,
+52,004,take assessment test,9,"[4, 3, 3, 4, 0]"
+53,004,take assessment test,1,"[4, 3, 4, 4, 0]"
+54,004,Final Exam,90,"[4, 3, 4, 4, 0]"
+55,,,,
+56,005,Prior Assessment Test,90,"[2, 2, 0, 0, 2]"
+57,005,watch video,15,
+58,005,take assessment test,8,"[2, 4, 1, 1, 2]"
+59,005,read textbook,1,
+60,005,read textbook,58,
+61,005,take assessment test,52,"[2, 4, 3, 3, 4]"
+62,005,read textbook,60,
+63,005,Final Exam,90,"[2, 4, 4, 3, 4]"
+64,,,,
+65,006,Prior Assessment Test,90,"[1, 1, 1, 0, 1]"
+66,006,take assessment test,42,"[1, 1, 1, 1, 1]"
+67,006,read textbook,10,
+68,006,take assessment test,17,"[1, 1, 2, 3, 1]"
+69,006,watch video,14,
+70,006,take assessment test,20,"[1, 3, 3, 3, 1]"
+71,006,read textbook,11,
+72,006,watch video,16,
+73,006,watch video,58,
+74,006,read textbook,16,
+75,006,take assessment test,25,"[2, 4, 4, 4, 3]"
+76,006,Final Exam,90,"[2, 4, 4, 4, 3]"
+77,,,,
+78,007,Prior Assessment Test,90,"[1, 1, 0, 2, 2]"
+79,007,watch video,3,
+80,007,read textbook,21,
+81,007,watch video,50,
+82,007,watch video,6,
+83,007,watch video,1,
+84,007,take assessment test,31,"[4, 3, 2, 3, 3]"
+85,007,watch video,40,
+86,007,Final Exam,90,"[4, 4, 2, 3, 3]"
+87,,,,
+88,008,Prior Assessment Test,90,"[2, 2, 1, 0, 0]"
+89,008,watch video,57,
+90,008,watch video,13,
+91,008,read textbook,48,
+92,008,watch video,51,
+93,008,take assessment test,6,"[3, 3, 2, 4, 0]"
+94,008,take assessment test,13,"[3, 3, 4, 4, 0]"
+95,008,watch video,37,
+96,008,read textbook,42,
+97,008,read textbook,2,
+98,008,watch video,39,
+99,008,take assessment test,4,"[4, 4, 4, 4, 2]"
+100,008,read textbook,11,
+101,008,Final Exam,90,"[4, 4, 4, 4, 3]"
+102,,,,
+103,009,Prior Assessment Test,90,"[0, 1, 2, 0, 2]"
+104,009,read textbook,25,
+105,009,take assessment test,23,"[0, 1, 4, 0, 2]"
+106,009,watch video,29,
+107,009,watch video,5,
+108,009,take assessment test,24,"[0, 3, 4, 3, 2]"
+109,009,read textbook,52,
+110,009,read textbook,12,
+111,009,read textbook,3,
+112,009,read textbook,45,
+113,009,take assessment test,49,"[0, 3, 4, 4, 4]"
+114,009,take assessment test,54,"[0, 3, 4, 4, 4]"
+115,009,watch video,4,
+116,009,read textbook,22,
+117,009,Final Exam,90,"[3, 3, 4, 4, 4]"
+118,,,,
+119,010,Prior Assessment Test,90,"[0, 1, 1, 0, 0]"
+120,010,read textbook,38,
+121,010,watch video,22,
+122,010,watch video,38,
+123,010,read textbook,48,
+124,010,take assessment test,1,"[1, 3, 2, 1, 2]"
+125,010,watch video,9,
+126,010,read textbook,40,
+127,010,take assessment test,2,"[1, 3, 2, 4, 3]"
+128,010,Final Exam,90,"[1, 3, 2, 4, 3]"
+129,,,,
+130,011,Prior Assessment Test,90,"[0, 2, 2, 2, 0]"
+131,011,watch video,34,
+132,011,read textbook,45,
+133,011,take assessment test,36,"[1, 2, 3, 4, 2]"
+134,011,watch video,39,
+135,011,take assessment test,44,"[2, 2, 4, 4, 2]"
+136,011,read textbook,58,
+137,011,Final Exam,90,"[2, 2, 4, 4, 3]"
+138,,,,
+139,012,Prior Assessment Test,90,"[2, 1, 1, 1, 1]"
+140,012,take assessment test,15,"[2, 1, 1, 2, 1]"
+141,012,take assessment test,59,"[2, 1, 2, 3, 1]"
+142,012,take assessment test,18,"[2, 1, 3, 3, 1]"
+143,012,watch video,24,
+144,012,read textbook,2,
+145,012,read textbook,1,
+146,012,take assessment test,12,"[4, 1, 4, 4, 3]"
+147,012,Final Exam,90,"[4, 1, 4, 4, 3]"
+148,,,,
+149,013,Prior Assessment Test,90,"[1, 0, 2, 1, 2]"
+150,013,read textbook,9,
+151,013,watch video,42,
+152,013,take assessment test,1,"[3, 1, 2, 3, 3]"
+153,013,read textbook,34,
+154,013,watch video,49,
+155,013,read textbook,6,
+156,013,read textbook,21,
+157,013,Final Exam,90,"[3, 1, 4, 4, 4]"
+158,,,,
+159,014,Prior Assessment Test,90,"[1, 2, 2, 0, 0]"
+160,014,take assessment test,11,"[1, 2, 2, 1, 0]"
+161,014,watch video,6,
+162,014,read textbook,4,
+163,014,watch video,3,
+164,014,take assessment test,43,"[1, 3, 4, 4, 1]"
+165,014,read textbook,9,
+166,014,watch video,27,
+167,014,watch video,35,
+168,014,take assessment test,1,"[3, 4, 4, 4, 2]"
+169,014,Final Exam,90,"[3, 4, 4, 4, 2]"
+170,,,,
+171,015,Prior Assessment Test,90,"[0, 1, 2, 2, 1]"
+172,015,watch video,32,
+173,015,watch video,37,
+174,015,watch video,21,
+175,015,read textbook,34,
+176,015,read textbook,48,
+177,015,read textbook,47,
+178,015,watch video,21,
+179,015,Final Exam,90,"[1, 4, 4, 4, 3]"
+180,,,,
+181,016,Prior Assessment Test,90,"[2, 0, 1, 1, 1]"
+182,016,watch video,60,
+183,016,read textbook,1,
+184,016,read textbook,9,
+185,016,watch video,34,
+186,016,take assessment test,52,"[4, 0, 3, 4, 2]"
+187,016,read textbook,37,
+188,016,read textbook,12,
+189,016,watch video,54,
+190,016,Final Exam,90,"[4, 2, 4, 4, 3]"
+191,,,,
+192,017,Prior Assessment Test,90,"[0, 0, 0, 1, 2]"
+193,017,take assessment test,43,"[0, 0, 0, 2, 2]"
+194,017,take assessment test,29,"[0, 0, 1, 2, 2]"
+195,017,watch video,3,
+196,017,watch video,14,
+197,017,watch video,30,
+198,017,read textbook,3,
+199,017,Final Exam,90,"[2, 3, 1, 3, 4]"
+200,,,,
+201,018,Prior Assessment Test,90,"[1, 1, 0, 1, 0]"
+202,018,take assessment test,3,"[1, 1, 1, 1, 0]"
+203,018,read textbook,22,
+204,018,read textbook,40,
+205,018,take assessment test,15,"[1, 1, 4, 1, 1]"
+206,018,watch video,12,
+207,018,read textbook,16,
+208,018,read textbook,13,
+209,018,read textbook,33,
+210,018,read textbook,1,
+211,018,read textbook,1,
+212,018,read textbook,45,
+213,018,take assessment test,2,"[1, 2, 4, 2, 4]"
+214,018,read textbook,45,
+215,018,take assessment test,37,"[1, 2, 4, 3, 4]"
+216,018,Final Exam,90,"[1, 2, 4, 3, 4]"
+217,,,,
+218,019,Prior Assessment Test,90,"[1, 0, 1, 2, 1]"
+219,019,read textbook,26,
+220,019,read textbook,49,
+221,019,take assessment test,50,"[1, 0, 3, 3, 2]"
+222,019,take assessment test,20,"[1, 0, 3, 4, 2]"
+223,019,read textbook,43,
+224,019,watch video,4,
+225,019,read textbook,43,
+226,019,take assessment test,46,"[4, 0, 4, 4, 4]"
+227,019,watch video,39,
+228,019,read textbook,20,
+229,019,read textbook,10,
+230,019,Final Exam,90,"[4, 1, 4, 4, 4]"
+231,,,,
+232,020,Prior Assessment Test,90,"[2, 2, 0, 2, 2]"
+233,020,take assessment test,13,"[2, 2, 1, 2, 2]"
+234,020,read textbook,1,
+235,020,read textbook,22,
+236,020,read textbook,60,
+237,020,watch video,45,
+238,020,read textbook,38,
+239,020,take assessment test,54,"[3, 4, 3, 4, 4]"
+240,020,take assessment test,21,"[3, 4, 4, 4, 4]"
+241,020,take assessment test,17,"[3, 4, 4, 4, 4]"
+242,020,watch video,41,
+243,020,Final Exam,90,"[4, 4, 4, 4, 4]"
+244,,,,
+245,021,Prior Assessment Test,90,"[1, 1, 1, 2, 2]"
+246,021,watch video,5,
+247,021,watch video,11,
+248,021,read textbook,53,
+249,021,watch video,2,
+250,021,take assessment test,46,"[4, 3, 3, 3, 2]"
+251,021,read textbook,4,
+252,021,Final Exam,90,"[4, 3, 4, 3, 3]"
+253,,,,
+254,022,Prior Assessment Test,90,"[1, 0, 0, 1, 0]"
+255,022,read textbook,12,
+256,022,read textbook,2,
+257,022,take assessment test,39,"[1, 0, 2, 3, 1]"
+258,022,watch video,39,
+259,022,read textbook,21,
+260,022,take assessment test,39,"[3, 0, 4, 4, 2]"
+261,022,watch video,16,
+262,022,read textbook,1,
+263,022,watch video,4,
+264,022,read textbook,22,
+265,022,watch video,7,
+266,022,take assessment test,18,"[4, 2, 4, 4, 4]"
+267,022,read textbook,57,
+268,022,Final Exam,90,"[4, 2, 4, 4, 4]"
+269,,,,
+270,023,Prior Assessment Test,90,"[0, 0, 2, 0, 0]"
+271,023,take assessment test,8,"[0, 0, 3, 1, 0]"
+272,023,read textbook,42,
+273,023,read textbook,1,
+274,023,watch video,3,
+275,023,take assessment test,9,"[0, 0, 4, 4, 2]"
+276,023,take assessment test,48,"[0, 0, 4, 4, 2]"
+277,023,watch video,12,
+278,023,watch video,2,
+279,023,watch video,41,
+280,023,watch video,4,
+281,023,Final Exam,90,"[4, 4, 4, 4, 2]"
+282,,,,
+283,024,Prior Assessment Test,90,"[2, 0, 0, 0, 1]"
+284,024,take assessment test,18,"[2, 0, 1, 0, 1]"
+285,024,watch video,57,
+286,024,read textbook,57,
+287,024,watch video,30,
+288,024,take assessment test,6,"[3, 0, 1, 4, 2]"
+289,024,watch video,47,
+290,024,take assessment test,18,"[3, 1, 2, 4, 2]"
+291,024,read textbook,47,
+292,024,take assessment test,23,"[3, 1, 4, 4, 2]"
+293,024,Final Exam,90,"[3, 1, 4, 4, 2]"
+294,,,,
+295,025,Prior Assessment Test,90,"[0, 0, 1, 2, 1]"
+296,025,take assessment test,1,"[0, 0, 2, 2, 1]"
+297,025,take assessment test,2,"[0, 0, 2, 3, 1]"
+298,025,read textbook,50,
+299,025,take assessment test,30,"[0, 0, 3, 3, 3]"
+300,025,read textbook,35,
+301,025,watch video,15,
+302,025,watch video,28,
+303,025,take assessment test,1,"[0, 4, 4, 4, 3]"
+304,025,watch video,59,
+305,025,Final Exam,90,"[1, 4, 4, 4, 3]"
+306,,,,
+307,026,Prior Assessment Test,90,"[2, 2, 0, 2, 2]"
+308,026,read textbook,55,
+309,026,watch video,20,
+310,026,read textbook,16,
+311,026,watch video,1,
+312,026,read textbook,4,
+313,026,Final Exam,90,"[4, 3, 3, 3, 4]"
+314,,,,
+315,027,Prior Assessment Test,90,"[0, 0, 0, 0, 1]"
+316,027,read textbook,26,
+317,027,read textbook,55,
+318,027,take assessment test,6,"[0, 0, 3, 0, 2]"
+319,027,watch video,3,
+320,027,watch video,18,
+321,027,take assessment test,16,"[2, 1, 3, 4, 2]"
+322,027,read textbook,23,
+323,027,take assessment test,38,"[2, 1, 4, 4, 2]"
+324,027,Final Exam,90,"[2, 1, 4, 4, 2]"
+325,,,,
+326,028,Prior Assessment Test,90,"[1, 0, 1, 0, 1]"
+327,028,watch video,12,
+328,028,take assessment test,12,"[1, 0, 1, 3, 1]"
+329,028,watch video,1,
+330,028,watch video,24,
+331,028,read textbook,7,
+332,028,watch video,4,
+333,028,Final Exam,90,"[3, 3, 3, 4, 1]"
+334,,,,
+335,029,Prior Assessment Test,90,"[2, 2, 0, 0, 0]"
+336,029,watch video,21,
+337,029,watch video,27,
+338,029,watch video,5,
+339,029,read textbook,27,
+340,029,take assessment test,1,"[4, 2, 2, 1, 0]"
+341,029,read textbook,24,
+342,029,read textbook,34,
+343,029,take assessment test,44,"[4, 2, 4, 2, 1]"
+344,029,read textbook,3,
+345,029,take assessment test,1,"[4, 2, 4, 3, 2]"
+346,029,watch video,46,
+347,029,watch video,12,
+348,029,Final Exam,90,"[4, 3, 4, 4, 2]"
+349,,,,
+350,030,Prior Assessment Test,90,"[1, 2, 1, 0, 2]"
+351,030,watch video,13,
+352,030,watch video,42,
+353,030,take assessment test,11,"[3, 2, 2, 2, 2]"
+354,030,read textbook,37,
+355,030,take assessment test,30,"[3, 2, 4, 3, 2]"
+356,030,take assessment test,13,"[3, 2, 4, 4, 2]"
+357,030,take assessment test,5,"[3, 2, 4, 4, 2]"
+358,030,watch video,55,
+359,030,take assessment test,1,"[4, 2, 4, 4, 2]"
+360,030,watch video,43,
+361,030,read textbook,7,
+362,030,take assessment test,1,"[4, 3, 4, 4, 3]"
+363,030,take assessment test,39,"[4, 3, 4, 4, 3]"
+364,030,Final Exam,90,"[4, 3, 4, 4, 3]"
+365,,,,
+366,031,Prior Assessment Test,90,"[2, 1, 2, 0, 0]"
+367,031,take assessment test,3,"[2, 1, 2, 2, 0]"
+368,031,take assessment test,22,"[2, 1, 2, 3, 0]"
+369,031,watch video,29,
+370,031,read textbook,14,
+371,031,watch video,30,
+372,031,Final Exam,90,"[3, 3, 2, 3, 2]"
+373,,,,
+374,032,Prior Assessment Test,90,"[0, 0, 0, 0, 1]"
+375,032,read textbook,9,
+376,032,read textbook,13,
+377,032,read textbook,1,
+378,032,take assessment test,16,"[0, 0, 3, 0, 4]"
+379,032,watch video,41,
+380,032,read textbook,28,
+381,032,take assessment test,9,"[0, 0, 4, 3, 4]"
+382,032,take assessment test,29,"[0, 0, 4, 4, 4]"
+383,032,take assessment test,31,"[0, 0, 4, 4, 4]"
+384,032,watch video,3,
+385,032,read textbook,10,
+386,032,watch video,43,
+387,032,watch video,16,
+388,032,Final Exam,90,"[4, 2, 4, 4, 4]"
+389,,,,
+390,033,Prior Assessment Test,90,"[2, 0, 1, 0, 1]"
+391,033,watch video,33,
+392,033,take assessment test,2,"[4, 1, 1, 1, 1]"
+393,033,read textbook,1,
+394,033,read textbook,32,
+395,033,take assessment test,58,"[4, 1, 3, 1, 2]"
+396,033,watch video,49,
+397,033,take assessment test,10,"[4, 2, 4, 2, 2]"
+398,033,watch video,1,
+399,033,Final Exam,90,"[4, 3, 4, 2, 2]"
+400,,,,
+401,034,Prior Assessment Test,90,"[1, 2, 1, 2, 1]"
+402,034,watch video,57,
+403,034,watch video,7,
+404,034,take assessment test,38,"[2, 4, 2, 4, 1]"
+405,034,read textbook,24,
+406,034,read textbook,5,
+407,034,take assessment test,58,"[2, 4, 4, 4, 2]"
+408,034,Final Exam,90,"[2, 4, 4, 4, 2]"
+409,,,,
+410,035,Prior Assessment Test,90,"[0, 2, 0, 1, 2]"
+411,035,watch video,11,
+412,035,watch video,13,
+413,035,watch video,2,
+414,035,take assessment test,14,"[1, 3, 0, 4, 2]"
+415,035,take assessment test,28,"[1, 3, 2, 4, 2]"
+416,035,watch video,29,
+417,035,take assessment test,14,"[1, 4, 3, 4, 2]"
+418,035,Final Exam,90,"[1, 4, 3, 4, 2]"
+419,,,,
+420,036,Prior Assessment Test,90,"[2, 2, 1, 0, 0]"
+421,036,read textbook,20,
+422,036,take assessment test,12,"[2, 2, 3, 0, 0]"
+423,036,take assessment test,22,"[2, 2, 4, 0, 0]"
+424,036,take assessment test,35,"[2, 2, 4, 1, 0]"
+425,036,watch video,7,
+426,036,take assessment test,11,"[4, 2, 4, 2, 0]"
+427,036,Final Exam,90,"[4, 2, 4, 2, 0]"
+428,,,,
+429,037,Prior Assessment Test,90,"[2, 0, 0, 1, 0]"
+430,037,watch video,2,
+431,037,watch video,22,
+432,037,read textbook,15,
+433,037,read textbook,41,
+434,037,watch video,43,
+435,037,take assessment test,3,"[4, 2, 0, 3, 2]"
+436,037,read textbook,54,
+437,037,watch video,42,
+438,037,watch video,10,
+439,037,read textbook,44,
+440,037,take assessment test,40,"[4, 4, 2, 4, 3]"
+441,037,watch video,49,
+442,037,Final Exam,90,"[4, 4, 2, 4, 3]"
+443,,,,
+444,038,Prior Assessment Test,90,"[1, 2, 1, 2, 2]"
+445,038,read textbook,3,
+446,038,read textbook,47,
+447,038,watch video,23,
+448,038,take assessment test,15,"[3, 2, 3, 3, 3]"
+449,038,take assessment test,35,"[3, 2, 4, 3, 3]"
+450,038,read textbook,16,
+451,038,read textbook,60,
+452,038,watch video,53,
+453,038,take assessment test,57,"[4, 3, 4, 4, 4]"
+454,038,Final Exam,90,"[4, 3, 4, 4, 4]"
+455,,,,
+456,039,Prior Assessment Test,90,"[0, 1, 2, 1, 0]"
+457,039,watch video,2,
+458,039,read textbook,48,
+459,039,take assessment test,6,"[0, 1, 4, 3, 0]"
+460,039,take assessment test,40,"[0, 1, 4, 4, 0]"
+461,039,read textbook,7,
+462,039,watch video,39,
+463,039,read textbook,24,
+464,039,take assessment test,4,"[1, 3, 4, 4, 3]"
+465,039,read textbook,5,
+466,039,Final Exam,90,"[1, 3, 4, 4, 4]"
+467,,,,
+468,040,Prior Assessment Test,90,"[2, 2, 2, 1, 0]"
+469,040,watch video,43,
+470,040,take assessment test,3,"[2, 2, 3, 3, 0]"
+471,040,read textbook,49,
+472,040,take assessment test,36,"[2, 2, 4, 4, 0]"
+473,040,take assessment test,14,"[2, 2, 4, 4, 0]"
+474,040,take assessment test,25,"[2, 2, 4, 4, 0]"
+475,040,take assessment test,7,"[2, 2, 4, 4, 0]"
+476,040,watch video,45,
+477,040,read textbook,2,
+478,040,watch video,15,
+479,040,read textbook,45,
+480,040,Final Exam,90,"[4, 3, 4, 4, 2]"
+481,,,,
+482,041,Prior Assessment Test,90,"[0, 0, 0, 2, 1]"
+483,041,take assessment test,57,"[0, 0, 0, 3, 1]"
+484,041,take assessment test,4,"[0, 0, 0, 4, 1]"
+485,041,read textbook,13,
+486,041,read textbook,15,
+487,041,take assessment test,7,"[0, 0, 4, 4, 1]"
+488,041,take assessment test,1,"[0, 0, 4, 4, 1]"
+489,041,watch video,23,
+490,041,watch video,56,
+491,041,read textbook,6,
+492,041,read textbook,12,
+493,041,take assessment test,19,"[1, 2, 4, 4, 4]"
+494,041,read textbook,7,
+495,041,watch video,25,
+496,041,read textbook,1,
+497,041,watch video,38,
+498,041,Final Exam,90,"[4, 4, 4, 4, 4]"
+499,,,,
+500,042,Prior Assessment Test,90,"[0, 0, 0, 2, 0]"
+501,042,read textbook,59,
+502,042,read textbook,34,
+503,042,take assessment test,2,"[0, 0, 2, 3, 2]"
+504,042,take assessment test,14,"[0, 0, 3, 3, 2]"
+505,042,watch video,21,
+506,042,take assessment test,32,"[0, 2, 4, 4, 2]"
+507,042,take assessment test,12,"[0, 2, 4, 4, 2]"
+508,042,watch video,51,
+509,042,read textbook,9,
+510,042,take assessment test,51,"[1, 2, 4, 4, 4]"
+511,042,read textbook,46,
+512,042,read textbook,24,
+513,042,read textbook,15,
+514,042,read textbook,10,
+515,042,watch video,9,
+516,042,Final Exam,90,"[1, 4, 4, 4, 4]"
+517,,,,
+518,043,Prior Assessment Test,90,"[2, 1, 0, 1, 2]"
+519,043,watch video,9,
+520,043,read textbook,38,
+521,043,watch video,57,
+522,043,read textbook,26,
+523,043,watch video,5,
+524,043,watch video,30,
+525,043,watch video,45,
+526,043,watch video,54,
+527,043,watch video,4,
+528,043,watch video,54,
+529,043,Final Exam,90,"[4, 4, 1, 4, 3]"
+530,,,,
+531,044,Prior Assessment Test,90,"[0, 2, 1, 2, 1]"
+532,044,read textbook,1,
+533,044,watch video,19,
+534,044,read textbook,46,
+535,044,read textbook,60,
+536,044,read textbook,44,
+537,044,Final Exam,90,"[1, 2, 4, 4, 3]"
+538,,,,
+539,045,Prior Assessment Test,90,"[1, 0, 1, 1, 1]"
+540,045,read textbook,10,
+541,045,read textbook,49,
+542,045,take assessment test,12,"[1, 0, 3, 2, 2]"
+543,045,watch video,8,
+544,045,read textbook,43,
+545,045,read textbook,16,
+546,045,watch video,10,
+547,045,watch video,2,
+548,045,take assessment test,58,"[3, 0, 4, 4, 4]"
+549,045,Final Exam,90,"[3, 0, 4, 4, 4]"
+550,,,,
+551,046,Prior Assessment Test,90,"[0, 1, 1, 0, 0]"
+552,046,watch video,60,
+553,046,take assessment test,1,"[1, 1, 2, 1, 0]"
+554,046,read textbook,39,
+555,046,read textbook,2,
+556,046,read textbook,9,
+557,046,read textbook,37,
+558,046,take assessment test,37,"[1, 1, 4, 2, 3]"
+559,046,watch video,20,
+560,046,read textbook,1,
+561,046,take assessment test,27,"[1, 2, 4, 4, 4]"
+562,046,watch video,29,
+563,046,watch video,40,
+564,046,take assessment test,15,"[3, 4, 4, 4, 4]"
+565,046,Final Exam,90,"[3, 4, 4, 4, 4]"
+566,,,,
+567,047,Prior Assessment Test,90,"[0, 2, 0, 2, 1]"
+568,047,watch video,33,
+569,047,read textbook,6,
+570,047,watch video,28,
+571,047,watch video,47,
+572,047,watch video,48,
+573,047,Final Exam,90,"[3, 4, 1, 4, 1]"
+574,,,,
+575,048,Prior Assessment Test,90,"[1, 1, 0, 1, 0]"
+576,048,take assessment test,19,"[1, 1, 1, 1, 0]"
+577,048,read textbook,21,
+578,048,watch video,21,
+579,048,read textbook,10,
+580,048,take assessment test,22,"[1, 1, 4, 3, 2]"
+581,048,read textbook,57,
+582,048,watch video,60,
+583,048,Final Exam,90,"[1, 2, 4, 3, 4]"
+584,,,,
+585,049,Prior Assessment Test,90,"[2, 0, 2, 2, 1]"
+586,049,read textbook,47,
+587,049,read textbook,12,
+588,049,take assessment test,26,"[2, 0, 4, 3, 3]"
+589,049,take assessment test,14,"[2, 0, 4, 4, 3]"
+590,049,take assessment test,10,"[2, 0, 4, 4, 3]"
+591,049,watch video,52,
+592,049,read textbook,2,
+593,049,read textbook,2,
+594,049,Final Exam,90,"[3, 0, 4, 4, 4]"
+595,,,,
+596,050,Prior Assessment Test,90,"[1, 0, 0, 0, 2]"
+597,050,take assessment test,14,"[1, 0, 1, 0, 2]"
+598,050,read textbook,10,
+599,050,take assessment test,29,"[1, 0, 3, 1, 2]"
+600,050,watch video,43,
+601,050,read textbook,32,
+602,050,take assessment test,18,"[3, 0, 4, 2, 3]"
+603,050,read textbook,22,
+604,050,watch video,30,
+605,050,Final Exam,90,"[4, 0, 4, 2, 4]"
+606,,,,
+607,051,Prior Assessment Test,90,"[1, 2, 1, 2, 2]"
+608,051,read textbook,45,
+609,051,read textbook,20,
+610,051,take assessment test,24,"[1, 2, 2, 3, 4]"
+611,051,watch video,1,
+612,051,Final Exam,90,"[1, 2, 2, 4, 4]"
+613,,,,
+614,052,Prior Assessment Test,90,"[2, 0, 2, 2, 2]"
+615,052,take assessment test,30,"[2, 0, 3, 2, 2]"
+616,052,watch video,50,
+617,052,watch video,51,
+618,052,take assessment test,35,"[3, 1, 4, 4, 2]"
+619,052,take assessment test,2,"[3, 1, 4, 4, 2]"
+620,052,watch video,57,
+621,052,read textbook,57,
+622,052,read textbook,1,
+623,052,read textbook,44,
+624,052,Final Exam,90,"[4, 3, 4, 4, 4]"
+625,,,,
+626,053,Prior Assessment Test,90,"[0, 1, 2, 0, 2]"
+627,053,read textbook,50,
+628,053,read textbook,1,
+629,053,watch video,31,
+630,053,take assessment test,16,"[0, 3, 3, 2, 4]"
+631,053,take assessment test,13,"[0, 3, 4, 2, 4]"
+632,053,read textbook,9,
+633,053,Final Exam,90,"[0, 3, 4, 2, 4]"
+634,,,,
+635,054,Prior Assessment Test,90,"[0, 2, 0, 1, 2]"
+636,054,take assessment test,3,"[0, 2, 1, 1, 2]"
+637,054,watch video,38,
+638,054,watch video,2,
+639,054,watch video,58,
+640,054,take assessment test,5,"[2, 3, 2, 4, 2]"
+641,054,read textbook,3,
+642,054,read textbook,3,
+643,054,watch video,21,
+644,054,take assessment test,23,"[4, 4, 4, 4, 3]"
+645,054,Final Exam,90,"[4, 4, 4, 4, 3]"
+646,,,,
+647,055,Prior Assessment Test,90,"[1, 1, 0, 2, 2]"
+648,055,take assessment test,38,"[1, 1, 1, 3, 2]"
+649,055,read textbook,25,
+650,055,watch video,20,
+651,055,read textbook,8,
+652,055,take assessment test,2,"[1, 1, 4, 4, 3]"
+653,055,watch video,1,
+654,055,watch video,4,
+655,055,watch video,10,
+656,055,watch video,55,
+657,055,watch video,28,
+658,055,take assessment test,47,"[4, 4, 4, 4, 3]"
+659,055,take assessment test,6,"[4, 4, 4, 4, 3]"
+660,055,Final Exam,90,"[4, 4, 4, 4, 3]"
+661,,,,
+662,056,Prior Assessment Test,90,"[1, 1, 1, 0, 0]"
+663,056,watch video,14,
+664,056,watch video,14,
+665,056,take assessment test,2,"[3, 1, 1, 3, 0]"
+666,056,read textbook,55,
+667,056,watch video,6,
+668,056,take assessment test,35,"[4, 1, 2, 4, 0]"
+669,056,read textbook,38,
+670,056,watch video,3,
+671,056,read textbook,3,
+672,056,watch video,16,
+673,056,take assessment test,24,"[4, 3, 4, 4, 2]"
+674,056,watch video,37,
+675,056,watch video,24,
+676,056,Final Exam,90,"[4, 4, 4, 4, 2]"
+677,,,,
+678,057,Prior Assessment Test,90,"[1, 0, 1, 2, 0]"
+679,057,take assessment test,22,"[1, 0, 2, 2, 0]"
+680,057,watch video,10,
+681,057,take assessment test,1,"[2, 0, 2, 3, 0]"
+682,057,take assessment test,38,"[2, 0, 2, 4, 0]"
+683,057,read textbook,50,
+684,057,read textbook,29,
+685,057,read textbook,49,
+686,057,Final Exam,90,"[2, 0, 4, 4, 3]"
+687,,,,
+688,058,Prior Assessment Test,90,"[1, 2, 0, 2, 2]"
+689,058,take assessment test,53,"[1, 2, 1, 3, 2]"
+690,058,take assessment test,11,"[1, 2, 1, 4, 2]"
+691,058,take assessment test,4,"[1, 2, 2, 4, 2]"
+692,058,watch video,52,
+693,058,read textbook,31,
+694,058,take assessment test,23,"[1, 3, 3, 4, 3]"
+695,058,watch video,15,
+696,058,watch video,51,
+697,058,Final Exam,90,"[4, 4, 3, 4, 3]"
+698,,,,
+699,059,Prior Assessment Test,90,"[2, 0, 1, 2, 1]"
+700,059,read textbook,36,
+701,059,watch video,5,
+702,059,read textbook,14,
+703,059,read textbook,7,
+704,059,watch video,30,
+705,059,watch video,14,
+706,059,Final Exam,90,"[4, 4, 2, 3, 3]"
+707,,,,
+708,060,Prior Assessment Test,90,"[1, 2, 0, 0, 1]"
+709,060,watch video,48,
+710,060,read textbook,39,
+711,060,watch video,4,
+712,060,watch video,1,
+713,060,watch video,30,
+714,060,watch video,16,
+715,060,read textbook,1,
+716,060,watch video,8,
+717,060,Final Exam,90,"[4, 4, 2, 4, 2]"
+718,,,,
+719,061,Prior Assessment Test,90,"[0, 2, 0, 1, 1]"
+720,061,take assessment test,55,"[0, 2, 1, 1, 1]"
+721,061,read textbook,54,
+722,061,take assessment test,36,"[0, 2, 3, 1, 1]"
+723,061,read textbook,14,
+724,061,read textbook,47,
+725,061,read textbook,12,
+726,061,read textbook,7,
+727,061,take assessment test,6,"[0, 2, 4, 2, 4]"
+728,061,take assessment test,3,"[0, 2, 4, 3, 4]"
+729,061,read textbook,8,
+730,061,watch video,2,
+731,061,watch video,15,
+732,061,read textbook,20,
+733,061,read textbook,58,
+734,061,Final Exam,90,"[2, 2, 4, 4, 4]"
+735,,,,
+736,062,Prior Assessment Test,90,"[0, 0, 1, 2, 0]"
+737,062,read textbook,8,
+738,062,watch video,5,
+739,062,take assessment test,3,"[1, 1, 2, 4, 1]"
+740,062,watch video,2,
+741,062,watch video,2,
+742,062,read textbook,60,
+743,062,read textbook,6,
+744,062,read textbook,1,
+745,062,Final Exam,90,"[2, 2, 4, 4, 3]"
+746,,,,
+747,063,Prior Assessment Test,90,"[0, 2, 1, 1, 0]"
+748,063,watch video,48,
+749,063,watch video,18,
+750,063,watch video,44,
+751,063,take assessment test,34,"[2, 3, 2, 3, 0]"
+752,063,read textbook,35,
+753,063,take assessment test,20,"[2, 3, 3, 4, 0]"
+754,063,take assessment test,41,"[2, 3, 4, 4, 0]"
+755,063,read textbook,44,
+756,063,read textbook,35,
+757,063,read textbook,30,
+758,063,Final Exam,90,"[2, 3, 4, 4, 4]"
+759,,,,
+760,064,Prior Assessment Test,90,"[0, 0, 0, 2, 1]"
+761,064,take assessment test,11,"[0, 0, 1, 2, 1]"
+762,064,watch video,14,
+763,064,read textbook,4,
+764,064,take assessment test,58,"[0, 1, 1, 4, 2]"
+765,064,read textbook,17,
+766,064,read textbook,17,
+767,064,watch video,30,
+768,064,watch video,35,
+769,064,watch video,29,
+770,064,Final Exam,90,"[2, 4, 4, 4, 3]"
+771,,,,
+772,065,Prior Assessment Test,90,"[1, 2, 1, 2, 2]"
+773,065,read textbook,39,
+774,065,read textbook,1,
+775,065,watch video,1,
+776,065,read textbook,34,
+777,065,Final Exam,90,"[2, 2, 4, 4, 3]"
+778,,,,
+779,066,Prior Assessment Test,90,"[2, 0, 0, 0, 1]"
+780,066,take assessment test,5,"[2, 0, 2, 0, 1]"
+781,066,take assessment test,34,"[2, 0, 3, 1, 1]"
+782,066,take assessment test,58,"[2, 0, 3, 2, 1]"
+783,066,read textbook,32,
+784,066,read textbook,32,
+785,066,take assessment test,2,"[2, 0, 4, 2, 3]"
+786,066,watch video,17,
+787,066,watch video,5,
+788,066,read textbook,56,
+789,066,read textbook,8,
+790,066,take assessment test,31,"[2, 2, 4, 4, 4]"
+791,066,watch video,32,
+792,066,watch video,20,
+793,066,Final Exam,90,"[4, 3, 4, 4, 4]"
+794,,,,
+795,067,Prior Assessment Test,90,"[0, 2, 0, 0, 1]"
+796,067,read textbook,19,
+797,067,read textbook,32,
+798,067,watch video,27,
+799,067,watch video,60,
+800,067,watch video,50,
+801,067,take assessment test,1,"[3, 4, 1, 2, 3]"
+802,067,watch video,27,
+803,067,read textbook,9,
+804,067,take assessment test,1,"[4, 4, 1, 3, 4]"
+805,067,watch video,10,
+806,067,watch video,18,
+807,067,Final Exam,90,"[4, 4, 1, 4, 4]"
+808,,,,
+809,068,Prior Assessment Test,90,"[0, 1, 1, 2, 0]"
+810,068,take assessment test,51,"[0, 1, 2, 3, 0]"
+811,068,read textbook,37,
+812,068,take assessment test,14,"[0, 1, 2, 4, 1]"
+813,068,watch video,42,
+814,068,read textbook,60,
+815,068,take assessment test,11,"[0, 3, 4, 4, 2]"
+816,068,take assessment test,1,"[0, 3, 4, 4, 2]"
+817,068,read textbook,58,
+818,068,read textbook,43,
+819,068,Final Exam,90,"[0, 3, 4, 4, 4]"
+820,,,,
+821,069,Prior Assessment Test,90,"[0, 0, 0, 2, 2]"
+822,069,read textbook,1,
+823,069,take assessment test,8,"[0, 0, 2, 3, 2]"
+824,069,read textbook,18,
+825,069,watch video,27,
+826,069,read textbook,27,
+827,069,take assessment test,15,"[0, 0, 4, 4, 4]"
+828,069,read textbook,10,
+829,069,read textbook,4,
+830,069,Final Exam,90,"[0, 0, 4, 4, 4]"
+831,,,,
+832,070,Prior Assessment Test,90,"[0, 1, 0, 2, 0]"
+833,070,take assessment test,20,"[0, 1, 1, 2, 0]"
+834,070,take assessment test,60,"[0, 1, 1, 3, 0]"
+835,070,watch video,5,
+836,070,read textbook,29,
+837,070,take assessment test,27,"[1, 1, 1, 4, 1]"
+838,070,watch video,51,
+839,070,read textbook,30,
+840,070,read textbook,23,
+841,070,watch video,3,
+842,070,watch video,40,
+843,070,read textbook,45,
+844,070,Final Exam,90,"[4, 4, 3, 4, 2]"
+845,,,,
+846,071,Prior Assessment Test,90,"[0, 1, 0, 2, 2]"
+847,071,watch video,15,
+848,071,watch video,50,
+849,071,read textbook,7,
+850,071,take assessment test,15,"[3, 2, 2, 3, 3]"
+851,071,Final Exam,90,"[3, 2, 2, 3, 3]"
+852,,,,
+853,072,Prior Assessment Test,90,"[0, 0, 2, 2, 1]"
+854,072,watch video,26,
+855,072,read textbook,15,
+856,072,watch video,57,
+857,072,watch video,9,
+858,072,take assessment test,35,"[3, 2, 3, 4, 2]"
+859,072,watch video,17,
+860,072,Final Exam,90,"[3, 3, 3, 4, 2]"
+861,,,,
+862,073,Prior Assessment Test,90,"[2, 2, 2, 1, 1]"
+863,073,read textbook,1,
+864,073,take assessment test,2,"[2, 2, 3, 1, 3]"
+865,073,take assessment test,60,"[2, 2, 4, 2, 3]"
+866,073,take assessment test,8,"[2, 2, 4, 3, 3]"
+867,073,read textbook,12,
+868,073,read textbook,3,
+869,073,read textbook,45,
+870,073,watch video,9,
+871,073,read textbook,6,
+872,073,Final Exam,90,"[2, 4, 4, 3, 4]"
+873,,,,
+874,074,Prior Assessment Test,90,"[0, 1, 1, 0, 0]"
+875,074,read textbook,15,
+876,074,read textbook,30,
+877,074,take assessment test,26,"[0, 1, 4, 0, 0]"
+878,074,read textbook,50,
+879,074,take assessment test,36,"[0, 1, 4, 1, 1]"
+880,074,watch video,3,
+881,074,watch video,16,
+882,074,watch video,30,
+883,074,read textbook,32,
+884,074,Final Exam,90,"[2, 3, 4, 4, 3]"
+885,,,,
+886,075,Prior Assessment Test,90,"[0, 1, 0, 0, 1]"
+887,075,watch video,47,
+888,075,read textbook,9,
+889,075,take assessment test,9,"[2, 2, 0, 1, 2]"
+890,075,watch video,4,
+891,075,read textbook,11,
+892,075,read textbook,19,
+893,075,read textbook,3,
+894,075,read textbook,27,
+895,075,watch video,10,
+896,075,read textbook,38,
+897,075,read textbook,30,
+898,075,Final Exam,90,"[3, 3, 4, 3, 4]"
+899,,,,
+900,076,Prior Assessment Test,90,"[1, 2, 2, 1, 0]"
+901,076,watch video,1,
+902,076,read textbook,6,
+903,076,watch video,17,
+904,076,watch video,16,
+905,076,take assessment test,10,"[3, 2, 4, 4, 1]"
+906,076,watch video,1,
+907,076,Final Exam,90,"[3, 4, 4, 4, 1]"
+908,,,,
+909,077,Prior Assessment Test,90,"[0, 0, 0, 2, 1]"
+910,077,take assessment test,12,"[0, 0, 1, 2, 1]"
+911,077,read textbook,35,
+912,077,take assessment test,35,"[0, 0, 2, 2, 3]"
+913,077,read textbook,10,
+914,077,take assessment test,12,"[0, 0, 3, 3, 3]"
+915,077,read textbook,37,
+916,077,watch video,48,
+917,077,take assessment test,42,"[1, 1, 4, 4, 3]"
+918,077,read textbook,11,
+919,077,Final Exam,90,"[1, 1, 4, 4, 4]"
+920,,,,
+921,078,Prior Assessment Test,90,"[0, 2, 0, 2, 0]"
+922,078,take assessment test,1,"[0, 2, 2, 2, 0]"
+923,078,watch video,30,
+924,078,watch video,11,
+925,078,take assessment test,2,"[0, 3, 3, 4, 0]"
+926,078,read textbook,26,
+927,078,watch video,1,
+928,078,Final Exam,90,"[0, 4, 3, 4, 2]"
+929,,,,
+930,079,Prior Assessment Test,90,"[1, 0, 1, 0, 0]"
+931,079,watch video,25,
+932,079,watch video,3,
+933,079,watch video,30,
+934,079,watch video,31,
+935,079,read textbook,41,
+936,079,read textbook,6,
+937,079,Final Exam,90,"[4, 4, 1, 4, 3]"
+938,,,,
+939,080,Prior Assessment Test,90,"[0, 1, 1, 2, 2]"
+940,080,take assessment test,10,"[0, 1, 2, 3, 2]"
+941,080,watch video,16,
+942,080,take assessment test,16,"[1, 1, 3, 4, 2]"
+943,080,watch video,7,
+944,080,take assessment test,18,"[1, 2, 4, 4, 2]"
+945,080,take assessment test,8,"[1, 2, 4, 4, 2]"
+946,080,take assessment test,11,"[1, 2, 4, 4, 2]"
+947,080,Final Exam,90,"[1, 2, 4, 4, 2]"
+948,,,,
+949,081,Prior Assessment Test,90,"[1, 0, 2, 1, 2]"
+950,081,watch video,44,
+951,081,watch video,50,
+952,081,watch video,13,
+953,081,read textbook,56,
+954,081,watch video,12,
+955,081,read textbook,58,
+956,081,Final Exam,90,"[3, 3, 3, 3, 4]"
+957,,,,
+958,082,Prior Assessment Test,90,"[0, 2, 1, 0, 0]"
+959,082,take assessment test,14,"[0, 2, 1, 1, 0]"
+960,082,watch video,11,
+961,082,read textbook,33,
+962,082,watch video,2,
+963,082,take assessment test,10,"[3, 2, 3, 2, 0]"
+964,082,watch video,3,
+965,082,watch video,21,
+966,082,take assessment test,10,"[4, 3, 3, 4, 0]"
+967,082,read textbook,30,
+968,082,take assessment test,31,"[4, 3, 4, 4, 1]"
+969,082,watch video,30,
+970,082,read textbook,49,
+971,082,take assessment test,14,"[4, 4, 4, 4, 2]"
+972,082,Final Exam,90,"[4, 4, 4, 4, 2]"
+973,,,,
+974,083,Prior Assessment Test,90,"[0, 1, 1, 2, 2]"
+975,083,watch video,7,
+976,083,take assessment test,47,"[1, 1, 2, 4, 2]"
+977,083,watch video,13,
+978,083,read textbook,43,
+979,083,take assessment test,38,"[3, 2, 4, 4, 2]"
+980,083,read textbook,29,
+981,083,watch video,20,
+982,083,Final Exam,90,"[4, 4, 4, 4, 4]"
+983,,,,
+984,084,Prior Assessment Test,90,"[1, 2, 2, 2, 1]"
+985,084,take assessment test,23,"[1, 2, 2, 4, 1]"
+986,084,watch video,43,
+987,084,watch video,59,
+988,084,read textbook,18,
+989,084,read textbook,31,
+990,084,watch video,23,
+991,084,take assessment test,30,"[2, 4, 4, 4, 2]"
+992,084,Final Exam,90,"[2, 4, 4, 4, 2]"
+993,,,,
+994,085,Prior Assessment Test,90,"[1, 1, 1, 2, 0]"
+995,085,read textbook,46,
+996,085,read textbook,29,
+997,085,take assessment test,26,"[1, 1, 2, 2, 2]"
+998,085,watch video,42,
+999,085,watch video,3,
+1000,085,read textbook,34,
+1001,085,read textbook,45,
+1002,085,Final Exam,90,"[2, 3, 4, 2, 3]"
+1003,,,,
+1004,086,Prior Assessment Test,90,"[0, 1, 2, 0, 1]"
+1005,086,watch video,53,
+1006,086,read textbook,23,
+1007,086,take assessment test,21,"[1, 1, 3, 0, 2]"
+1008,086,take assessment test,52,"[1, 1, 4, 0, 2]"
+1009,086,take assessment test,5,"[1, 1, 4, 1, 2]"
+1010,086,watch video,45,
+1011,086,watch video,51,
+1012,086,watch video,20,
+1013,086,watch video,20,
+1014,086,watch video,27,
+1015,086,Final Exam,90,"[4, 4, 4, 4, 2]"
+1016,,,,
+1017,087,Prior Assessment Test,90,"[2, 0, 2, 2, 0]"
+1018,087,read textbook,7,
+1019,087,take assessment test,51,"[2, 0, 2, 3, 1]"
+1020,087,take assessment test,16,"[2, 0, 3, 4, 1]"
+1021,087,read textbook,35,
+1022,087,watch video,12,
+1023,087,watch video,56,
+1024,087,Final Exam,90,"[3, 2, 4, 4, 2]"
+1025,,,,
+1026,088,Prior Assessment Test,90,"[1, 2, 0, 0, 1]"
+1027,088,watch video,60,
+1028,088,watch video,15,
+1029,088,take assessment test,46,"[2, 4, 0, 4, 1]"
+1030,088,read textbook,52,
+1031,088,read textbook,11,
+1032,088,Final Exam,90,"[2, 4, 2, 4, 1]"
+1033,,,,
+1034,089,Prior Assessment Test,90,"[0, 2, 1, 2, 1]"
+1035,089,read textbook,10,
+1036,089,watch video,2,
+1037,089,watch video,27,
+1038,089,read textbook,15,
+1039,089,watch video,15,
+1040,089,watch video,7,
+1041,089,Final Exam,90,"[4, 4, 2, 4, 4]"
+1042,,,,
+1043,090,Prior Assessment Test,90,"[1, 0, 2, 0, 1]"
+1044,090,take assessment test,45,"[1, 0, 2, 2, 1]"
+1045,090,read textbook,1,
+1046,090,read textbook,36,
+1047,090,watch video,3,
+1048,090,take assessment test,30,"[2, 0, 2, 4, 4]"
+1049,090,Final Exam,90,"[2, 0, 2, 4, 4]"
+1050,,,,
+1051,091,Prior Assessment Test,90,"[0, 1, 0, 0, 0]"
+1052,091,watch video,49,
+1053,091,take assessment test,21,"[0, 2, 1, 2, 0]"
+1054,091,watch video,2,
+1055,091,watch video,52,
+1056,091,watch video,58,
+1057,091,take assessment test,17,"[4, 4, 2, 3, 0]"
+1058,091,read textbook,9,
+1059,091,read textbook,13,
+1060,091,watch video,33,
+1061,091,Final Exam,90,"[4, 4, 2, 4, 2]"
+1062,,,,
+1063,092,Prior Assessment Test,90,"[2, 0, 0, 0, 0]"
+1064,092,watch video,6,
+1065,092,read textbook,43,
+1066,092,read textbook,18,
+1067,092,read textbook,28,
+1068,092,take assessment test,9,"[2, 0, 4, 3, 1]"
+1069,092,take assessment test,29,"[2, 0, 4, 4, 1]"
+1070,092,watch video,3,
+1071,092,watch video,50,
+1072,092,read textbook,14,
+1073,092,read textbook,50,
+1074,092,take assessment test,1,"[4, 2, 4, 4, 3]"
+1075,092,read textbook,26,
+1076,092,take assessment test,36,"[4, 2, 4, 4, 4]"
+1077,092,watch video,54,
+1078,092,read textbook,39,
+1079,092,Final Exam,90,"[4, 3, 4, 4, 4]"
+1080,,,,
+1081,093,Prior Assessment Test,90,"[0, 0, 1, 0, 2]"
+1082,093,take assessment test,44,"[0, 0, 2, 0, 2]"
+1083,093,read textbook,15,
+1084,093,take assessment test,6,"[0, 0, 4, 0, 3]"
+1085,093,take assessment test,37,"[0, 0, 4, 1, 3]"
+1086,093,watch video,4,
+1087,093,take assessment test,3,"[1, 1, 4, 3, 3]"
+1088,093,take assessment test,28,"[1, 1, 4, 4, 3]"
+1089,093,watch video,20,
+1090,093,Final Exam,90,"[2, 1, 4, 4, 3]"
+1091,,,,
+1092,094,Prior Assessment Test,90,"[2, 1, 0, 1, 0]"
+1093,094,watch video,5,
+1094,094,watch video,10,
+1095,094,watch video,17,
+1096,094,take assessment test,2,"[4, 4, 1, 3, 0]"
+1097,094,read textbook,45,
+1098,094,Final Exam,90,"[4, 4, 2, 3, 0]"
+1099,,,,
+1100,095,Prior Assessment Test,90,"[1, 2, 0, 0, 1]"
+1101,095,watch video,28,
+1102,095,read textbook,26,
+1103,095,watch video,28,
+1104,095,take assessment test,48,"[3, 3, 1, 1, 1]"
+1105,095,watch video,26,
+1106,095,watch video,22,
+1107,095,take assessment test,2,"[4, 4, 1, 3, 1]"
+1108,095,read textbook,1,
+1109,095,take assessment test,38,"[4, 4, 1, 4, 2]"
+1110,095,read textbook,36,
+1111,095,watch video,2,
+1112,095,read textbook,19,
+1113,095,watch video,11,
+1114,095,Final Exam,90,"[4, 4, 3, 4, 3]"
+1115,,,,
+1116,096,Prior Assessment Test,90,"[1, 2, 1, 2, 0]"
+1117,096,read textbook,34,
+1118,096,watch video,4,
+1119,096,take assessment test,5,"[2, 3, 2, 3, 0]"
+1120,096,take assessment test,27,"[2, 3, 3, 4, 0]"
+1121,096,read textbook,18,
+1122,096,watch video,19,
+1123,096,watch video,2,
+1124,096,read textbook,36,
+1125,096,Final Exam,90,"[3, 4, 4, 4, 3]"
+1126,,,,
+1127,097,Prior Assessment Test,90,"[0, 0, 0, 2, 2]"
+1128,097,watch video,10,
+1129,097,take assessment test,36,"[2, 0, 1, 2, 2]"
+1130,097,take assessment test,51,"[2, 0, 1, 3, 2]"
+1131,097,take assessment test,57,"[2, 0, 2, 3, 2]"
+1132,097,read textbook,21,
+1133,097,read textbook,34,
+1134,097,watch video,38,
+1135,097,watch video,45,
+1136,097,watch video,17,
+1137,097,take assessment test,14,"[4, 4, 4, 4, 3]"
+1138,097,take assessment test,1,"[4, 4, 4, 4, 3]"
+1139,097,watch video,3,
+1140,097,Final Exam,90,"[4, 4, 4, 4, 3]"
+1141,,,,
+1142,098,Prior Assessment Test,90,"[0, 0, 0, 2, 2]"
+1143,098,take assessment test,17,"[0, 0, 1, 2, 2]"
+1144,098,take assessment test,32,"[0, 0, 2, 2, 2]"
+1145,098,take assessment test,18,"[0, 0, 2, 4, 2]"
+1146,098,take assessment test,12,"[0, 0, 3, 4, 2]"
+1147,098,watch video,5,
+1148,098,take assessment test,8,"[0, 2, 4, 4, 2]"
+1149,098,watch video,12,
+1150,098,take assessment test,59,"[0, 4, 4, 4, 2]"
+1151,098,Final Exam,90,"[0, 4, 4, 4, 2]"
+1152,,,,
+1153,099,Prior Assessment Test,90,"[1, 0, 1, 2, 0]"
+1154,099,watch video,14,
+1155,099,read textbook,1,
+1156,099,watch video,25,
+1157,099,watch video,33,
+1158,099,watch video,45,
+1159,099,take assessment test,50,"[4, 4, 1, 3, 2]"
+1160,099,Final Exam,90,"[4, 4, 1, 3, 2]"
+1161,,,,
