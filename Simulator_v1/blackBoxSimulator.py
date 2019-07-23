@@ -37,9 +37,9 @@ class Student:
 			else:
 				prof_0_flip = np.random.random()
 				if prof_0_flip <= 0.25:
-					self.proficiency[0] = max(1, self.proficiency[0] + 0.25)
-				else:
 					self.proficiency[0] = max(1, self.proficiency[0] + 0.5)
+				else:
+					self.proficiency[0] = max(1, self.proficiency[0] + 0.25)
 
 			#Updates to proficiency in KC 1
 			"""
@@ -52,14 +52,14 @@ class Student:
 			"""
 			avg_prof_0 = (original_prof_0 + self.proficiency[0])/2
 			original_prof_1 = self.proficiency[1]
-			if avg_prof_0 < 0.5:
+			if avg_prof_0 <= 0.5:
 				self.proficiency[1] += 0.25
 			else:
 				prof_1_flip = np.random.random()
-				if prof_1_flip <= 0.75:
-					self.proficiency[1] = max(1, self.proficiency[1] + 0.25)
-				else:
+				if prof_1_flip <= 0.5:
 					self.proficiency[1] = max(1, self.proficiency[1] + 0.5)
+				else:
+					self.proficiency[1] = max(1, self.proficiency[1] + 0.25)
 
 			#Updates to proficiency in KC 2
 			#Depends on proficiencies in KCs 0 and 1
@@ -67,7 +67,7 @@ class Student:
 			avg_prof_1 = (original_prof_1 + self.proficiency[1])/2
 			avg_prof_0_1 = 0.75 * avg_prof_0 + 0.25 * avg_prof_1
 			original_prof_2 = self.proficiency[2]
-			if avg_prof_0_1 < 0.5:
+			if avg_prof_0_1 <= 0.5:
 				self.proficiency[2] = max(1, self.proficiency[0] + 0.25)
 			else:
 				prof_2_flip = np.random.random()
@@ -81,8 +81,35 @@ class Student:
 			time_taken = 2 if time_flip < original_prof_0 * original_prof_1 * original_prof_2 else 5
 			return time_taken 
 
-		elif video_id == 3: #Affects KCs 2, 3 and 4
-			pass
+		elif video_id == 3: #Affects KCs 3 and 4, depends on KCs 1 and 2
+
+			#Updates to Proficiency in KC 3 and 4
+			original_prof_3 = self.proficiency[3]
+			original_prof_4 = self.proficiency[4]
+
+			#Probabilities that determine increases in proficiency for KCs 3 and 4
+			#Intuitively, KCs 1 and 2 are equally important for learning KC 3, while
+			#KC 2 is more important than KC 1 for learning KC 4
+			update_prob_3 = 0.5 * self.proficiency[1] + 0.5 * self.proficiency[2]
+			update_prob_4 = 0.25 * self.proficiency[1] + 0.75 * self.proficiency[2]
+
+			prof_3_flip = np.random.random()
+			if prof_3_flip <= update_prob_3:
+				self.proficiency[3] = max(1, self.proficiency[3] + 0.5)
+			else:
+				self.proficiency[3] = max(1, self.proficiency[3] + 0.25)
+
+			prof_4_flip = np.random.random()
+			if prof_4_flip <= update_prob_4:
+				self.proficiency[4] = max(1, self.proficiency[4] + 0.5)
+			else:
+				self.proficiency[4] = max(1, self.proficiency[4] + 0.25)
+
+			#Time taken
+			time_prob = 0.125 * self.proficiency[1] + 0.125 * self.proficiency[2] + 0.375 * self.proficiency[3] + 0.375 * self.proficiency[4]
+			time_flip = np.random.random()
+			time_taken = 4 if time_flip < time_prob else 8
+			return time_taken
 
 	"""
 	Input: 0 <= test_id < num_tests
@@ -92,13 +119,15 @@ class Student:
 	then all of the KCs are keys for this dictionary.
 	"""
 	def take_assessment(self, test_id):
-		if test_id == 1:
+		if test_id == 1: #Tests KCs 0, 1
+			prof_dict 
+
 			pass
-		elif test_id == 2:
+		elif test_id == 2: #Tests KCs 1, 2, 3
 			pass
-		elif test_id == 3:
+		elif test_id == 3: #Tests KCs 2, 3, 4
 			pass
-		elif test_id == 4:
+		elif test_id == 4: #Tests all KCs
 			pass
 
 def generate_episode():
