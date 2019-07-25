@@ -1,8 +1,6 @@
 import json, random, copy, sys, getopt
-from create_action import NUM_KC, NUM_PROFICIENCY_LEVEL, ACTION_PATH, gen_random_output_index
+from simulator import NUM_KC, NUM_PROFICIENCY_LEVEL, ACTION_PATH, gen_random_output_index, ACCURACY
 
-
-accuracy = 0.001
 ACTIONS = {}
 
 
@@ -14,7 +12,7 @@ def add_action(name, start_states, end_states, transit_probability):
 			if len(end_states[i]) != len(transit_probability[i]):
 				print("transition paris do not match 2 !")
 				return
-			if 1 - sum(transit_probability[i]) > accuracy:
+			if 1 - sum(transit_probability[i]) > ACCURACY:
 				print("invalid transition probability.")
 				return
 		ACTIONS[name]={}
