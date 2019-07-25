@@ -1,27 +1,6 @@
 import json, random, copy, sys, getopt
+from create_action import NUM_KC, NUM_PROFICIENCY_LEVEL, ACTION_PATH, gen_random_output_index
 
-NUM_KC = 5
-NUM_PROFICIENCY_LEVEL = 5
-ACTION_PATH =  "./action.txt"#last action is "assessment test"
-
-
-
-args = sys.argv[1:]
-options = ["kc=", "proficiency=","actions="] 
-try:
-	arguments, _ = getopt.getopt(args, [], options)
-except getopt.error as err:
-	# output error, and return with an error code
-	print (str(err))
-	sys.exit(2)
-
-for currentArgument, currentValue in arguments:
-	if currentArgument == "--kc":
-		NUM_KC = str(currentValue)
-	elif currentArgument == "--proficiency":
-		NUM_PROFICIENCY_LEVEL = str(currentValue)
-	elif currentArgument == "--actions":
-		ACTION_PATH = str(currentValue)
 
 accuracy = 0.001
 ACTIONS = {}
@@ -64,7 +43,7 @@ def valid(state):
 		if p_level < 0 or p_level >= NUM_PROFICIENCY_LEVEL:
 			return False
 	return True
-def gen_random_transition_probability(state, max_proficiency_increment, alpha):
+def gen_random_transition_probability(state, max_proficiency_increment, alpha = 0.6):
 	unrelated_index = []
 	related_plevels = []
 	for i in range(len(state)):
@@ -102,16 +81,21 @@ def gen_random_transition_probability(state, max_proficiency_increment, alpha):
 	return end_states, probability
 
 
-def gen_random_input_states(related_entries):
+def gen_random_input_states(related_entries, minimum_required_plevel, alpha = 0.8):
 	res = []
-	if len(related_entries) == 1:
-		for i in range(NUM_PROFICIENCY_LEVEL):
-			res.append([-1]*related_entries[0]+[i]+[-1]*(NUM_KC - 1 - related_entries[0]))
-		return res 
+	if len(related_entries) == 0:
+		return [[-1]*(NUM_KC)]
 	else:
-		entry = related_entries[0]
-		rest_entries = gen_random_input_states(related_entries[1:])
-		for i in range(NUM_PROFICIENCY_LEVEL):
+		main_entry = random.randint(0,len(related_entries)-1)
+		entry = related_entries[main_entry]
+		for i in range(minimum_required_plevel[main_entry], NUM_PROFICIENCY_LEVEL):
+			new_related_entries = []
+			new_minimum_required_plevel = []
+			for j in range(len(related_entries)):
+				if random.random() < alpha and j != main_entry:
+					new_related_entries.append(related_entries[j])
+					new_minimum_required_plevel.append(minimum_required_plevel[j])
+			rest_entries = gen_random_input_states(new_related_entries, new_minimum_required_plevel)
 			for p_levels in rest_entries:
 				p_levels[entry] = i
 			cur_part = copy.deepcopy(rest_entries)
@@ -119,41 +103,35 @@ def gen_random_input_states(related_entries):
 
 		return res
 
-watch_video_states = gen_random_input_states([0,1,3])
-read_textbook_states = gen_random_input_states([2,4])
-take_assessment_test_states = gen_random_input_states([2,3])
-
-watch_video_end_states = []
-watch_video_end_p = []
-for state in watch_video_states:
-	end_state, p = gen_random_transition_probability(state, 3, 0.6)
-	if p!= []:
-		watch_video_end_states.append(end_state)
-		watch_video_end_p.append(p)
 
 
-add_action("watch video", watch_video_states[:-1],watch_video_end_states,watch_video_end_p)
 
+for i in range(40):
+	action_id = str(i)
+	if i >= 30:
+		action_id = "AT" + action_id
+	related_entries = []
+	minimum_required_plevel = []
+	include_p = 0.5
+	for i in range(NUM_KC):
+		if random.random()>0.5:
+			related_entries.append(i)
+		minimum_required_plevel.append(gen_random_output_index([0.3,0.35,0.2,0.1,0.05]))
+	if related_entries == []:
+		related_entries.append(random.randint(0,NUM_KC-1))
+	start_states = gen_random_input_states(related_entries, minimum_required_plevel)
+	valid_start_states =[] 
+	end_states = []
+	end_p = []
+	for state in start_states:
+		max_proficiency_increment = gen_random_output_index([0.3,0.4,0.15,0.1,0.05])
+		end_state, p = gen_random_transition_probability(state, max_proficiency_increment)
+		if p!= []:
+			valid_start_states.append(state)
+			end_states.append(end_state)
+			end_p.append(p)
+	add_action(action_id, valid_start_states,end_states, end_p)
 
-read_textbook_end_states = []
-read_textbook_end_p = []
-for state in read_textbook_states:
-	end_state, p = gen_random_transition_probability(state, 2, 0.45)
-	if p!= []:
-		read_textbook_end_states.append(end_state)
-		read_textbook_end_p.append(p)
-
-add_action("read textbook", read_textbook_states[:-1], read_textbook_end_states, read_textbook_end_p)
-
-take_assessment_test_end_states = []
-take_assessment_test_end_p = []
-for state in take_assessment_test_states:
-	end_state, p = gen_random_transition_probability(state, 2, 0.3)
-	if p != []:
-		take_assessment_test_end_p.append(p)
-		take_assessment_test_end_states.append(end_state)
-
-add_action("take assessment test", take_assessment_test_states[:-1], take_assessment_test_end_states, take_assessment_test_end_p)
 
 
 
