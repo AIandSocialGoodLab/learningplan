@@ -9,7 +9,8 @@ NUM_PROFICIENCY_LEVEL = 5
 ACTION_PATH =  "./action.txt"#last action is "assessment test"
 AVERAGE_PROFICIENCY_INCREMENT = 1.5
 ACCURACY = 0.001
-
+NUM_ACTIONS = 50
+NUM_ASSESSMENT_TESTS = 20
 args = sys.argv[1:]
 options = ["students=", "output=", "kc=", "proficiency=","actions="] 
 try:
@@ -35,9 +36,11 @@ for currentArgument, currentValue in arguments:
 with open(ACTION_PATH) as json_file:
 	all_actions = json.load(json_file)
 	action_set = []
-	for action in all_actions:
+	for action in all_actions["actions"]:
 		action_set.append(action)
 	num_actions = len(action_set)
+	related_entries = all_actions["reveal_plevels"]
+
 
 
 def gen_random_output_index(l):
@@ -91,30 +94,37 @@ for i in range(STUDENTS):
 	cur_proficiency = generate_proficiency([0.4,0.45,0.1,0.04,0.01])
 	df = df.append(other = build_row(cur_id, "Prior Assessment Test", 90, cur_proficiency), ignore_index = True)
 	while True:
-		terminate_probability = (sum(cur_proficiency) - 10.0)/20.0
-		if random.random() < terminate_probability or sum(cur_proficiency) == 20:
+		terminate_probability = (sum(cur_proficiency) - 10.0)/(NUM_KC*(NUM_PROFICIENCY_LEVEL-1.0))
+		if random.random() < terminate_probability or sum(cur_proficiency) == (NUM_KC*(NUM_PROFICIENCY_LEVEL-1)):
 			break
 		not_found_action = True
 		step = 0
-		while not_found_action and step<50:
+		while not_found_action and step< (NUM_ACTIONS+NUM_ASSESSMENT_TESTS)*2:
 			step += 1
 			action_type = action_set[random.randint(0,len(action_set)-1)]
 			time = 1 + int(60*(random.random())**1.5)
-			for state in all_actions[action_type]:
+			for state in all_actions["actions"][action_type]:
 				cur_state = [int(i) for i in state.strip('[]').split(',')]
 				if state_match(cur_state, cur_proficiency):
 					not_found_action = False
 					tok = random.random()
 					index = 0
 					while tok > 0:
-						tok -= all_actions[action_type][state][index]["p"]
+						tok -= all_actions["actions"][action_type][state][index]["p"]
 						index += 1
-					end_state = all_actions[action_type][state][index-1]["end_state"]
+					end_state = all_actions["actions"][action_type][state][index-1]["end_state"]
 					cur_proficiency = update_state(cur_proficiency, end_state) 
 					break
 		if step < 50:
 			if action_type[:2] == "AT":
-				df = df.append(other = build_row(cur_id, action_type, time, cur_proficiency), ignore_index = True)
+				reveal_plevels = [int(i) for i in all_actions["reveal_plevels"][action_type].strip('[]').split(',')]
+				reveal_proficiency = []
+				for i in range(NUM_KC):
+					if i in reveal_plevels:
+						reveal_proficiency.append(cur_proficiency[i])
+					else:
+						reveal_proficiency.append('?')
+				df = df.append(other = build_row(cur_id, action_type, time, reveal_proficiency), ignore_index = True)
 			else:
 				df = df.append(other = build_row(cur_id, action_type, time, None), ignore_index = True)
 		else:

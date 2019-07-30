@@ -1,10 +1,11 @@
 import json, random, copy, sys, getopt
-from simulator import NUM_KC, NUM_PROFICIENCY_LEVEL, ACTION_PATH, gen_random_output_index, ACCURACY
+from simulator import NUM_KC, NUM_PROFICIENCY_LEVEL, ACTION_PATH
+from simulator import gen_random_output_index, ACCURACY, NUM_ACTIONS, NUM_ASSESSMENT_TESTS
 
-ACTIONS = {}
+ACTIONS = {"reveal_plevels":{}, "actions":{}}
 
 
-def add_action(name, start_states, end_states, transit_probability):
+def add_action(name, related_entries, start_states, end_states, transit_probability):
 	if len(start_states)!= len(end_states) or len(start_states)!=len(transit_probability):
 		print("transition pairs do not match!")
 	else:
@@ -15,11 +16,13 @@ def add_action(name, start_states, end_states, transit_probability):
 			if 1 - sum(transit_probability[i]) > ACCURACY:
 				print("invalid transition probability.")
 				return
-		ACTIONS[name]={}
+		ACTIONS["actions"][name]={}
+		ACTIONS["reveal_plevels"][name] = str(related_entries) 
 		for i in range(len(start_states)):
-			ACTIONS[name][str(start_states[i])] = []
+			ACTIONS["actions"][name][str(start_states[i])] = []
 			for j in range(len(end_states[i])):
-				ACTIONS[name][str(start_states[i])].append({"end_state":end_states[i][j], "p":transit_probability[i][j]})
+				ACTIONS["actions"][name][str(start_states[i])].append(
+					{"end_state":end_states[i][j], "p":transit_probability[i][j]})
 
 
 def gen_sum_set(s,l):
@@ -104,9 +107,9 @@ def gen_random_input_states(related_entries, minimum_required_plevel, alpha = 0.
 
 
 
-for i in range(40):
+for i in range(NUM_ACTIONS+NUM_ASSESSMENT_TESTS):
 	action_id = str(i)
-	if i >= 30:
+	if i >= NUM_ACTIONS:
 		action_id = "AT" + action_id
 	related_entries = []
 	minimum_required_plevel = []
@@ -128,7 +131,9 @@ for i in range(40):
 			valid_start_states.append(state)
 			end_states.append(end_state)
 			end_p.append(p)
-	add_action(action_id, valid_start_states,end_states, end_p)
+	if action_id[:2] != "AT":
+		related_entries = []
+	add_action(action_id, related_entries, valid_start_states,end_states, end_p)
 
 
 
