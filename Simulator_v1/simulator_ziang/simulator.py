@@ -118,12 +118,9 @@ for i in range(STUDENTS):
 		if step < 50:
 			if action_type[:2] == "AT":
 				reveal_plevels = [int(i) for i in all_actions["reveal_plevels"][action_type].strip('[]').split(',')]
-				reveal_proficiency = []
+				reveal_proficiency = {}
 				for i in range(NUM_KC):
-					if i in reveal_plevels:
-						reveal_proficiency.append(cur_proficiency[i])
-					else:
-						reveal_proficiency.append('?')
+					reveal_proficiency[i] = cur_proficiency[i]
 				df = df.append(other = build_row(cur_id, action_type, time, reveal_proficiency), ignore_index = True)
 			else:
 				df = df.append(other = build_row(cur_id, action_type, time, None), ignore_index = True)
