@@ -120,7 +120,8 @@ for i in range(STUDENTS):
 				reveal_plevels = [int(i) for i in all_actions["reveal_plevels"][action_type].strip('[]').split(',')]
 				reveal_proficiency = {}
 				for i in range(NUM_KC):
-					reveal_proficiency[i] = cur_proficiency[i]
+					if i in reveal_plevels:
+						reveal_proficiency[i] = cur_proficiency[i]
 				df = df.append(other = build_row(cur_id, action_type, time, reveal_proficiency), ignore_index = True)
 			else:
 				df = df.append(other = build_row(cur_id, action_type, time, None), ignore_index = True)
