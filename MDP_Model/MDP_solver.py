@@ -41,6 +41,15 @@ def transite(cur_state, cur_action):
 	for i in range(len(cur_state)):
 		if cur_state[i]!=0:
 			new_state += P[cur_action][i] * cur_state[i]
+	total_sum = 0
+	valid_states = []
+	for i in range(len(new_state)):
+		if new_state[i] >= 0.1:
+			valid_states.append(i)
+			total_sum += new_state[i]
+	for i in range(len(new_state)):
+		if i in valid_states:
+			new_state[i] = new_state[i]/total_sum
 	return new_state
 
 def over(s1,s2):
@@ -55,15 +64,18 @@ def reach_goal(cur_state, threhold = 0.5):
 		state = decode_state(i)
 		if over(state, GOAL):
 			p += cur_state[i]
-	print(cur_state, p)
+	#print(cur_state, p)
 	return p > threhold
 
 reach_target = False
 cur_state = np.zeros(5**5)
 cur_state[encode_state(START_P)] = 1.0
 action_history = []
-while not reach_target:
+step = 0
+while not reach_target and step < 10:
+	step += 1
 	cur_action = policy[cur_state.argmax()]
+	print(cur_action)
 	action_history.append(ACTIONS[cur_action])
 	cur_state = transite(cur_state, cur_action)
 	if reach_goal(cur_state):
