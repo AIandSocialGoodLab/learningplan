@@ -153,7 +153,6 @@ NUM_ACTIONS = len(all_actions)
 all_actions = sorted(list(all_actions))
 ACTIONS = all_actions
 print(ACTIONS)
-#print(sorted(list(set(all_actions))))
 print(NUM_KC, NUM_ACTIONS)
 
 
@@ -212,24 +211,8 @@ except:
                         break
     np.save('P.npy', P)
             
-"""
-        if not mdptoolbox.util.isStochastic(P[i]):
-            print ("dif:", (np.abs(P[i].sum(axis=1) -np.ones(P[i].shape[0]))).max() )
-            print ("threhold", 10*np.spacing(np.float64(1)))
-
-        
-
-    LEARNING_GOALS = NUM_KC**5
-    R = np.ones((len(all_actions), LEARNING_GOALS))
-    ql = mdptoolbox.mdp.QLearning(P, R.transpose(), 0.8) 
-    ql.run()
-"""
-    #LEARNING_GOALS = NUM_KC**5
 
 
-    
-
-#for state_num in range(LEARNING_GOALS):
 
 try:
     R = np.load("R" + str(state_num) + ".npy")
@@ -238,38 +221,18 @@ try:
 
 except:
     print("Genertaing R!")
-
-"""
-if True:
-    if not haveR:
-        R = np.zeros((len(all_actions), NUM_KC**5))
-        for action in range(len(all_actions)):
-            print(action)
-            for state in range(NUM_KC**5):
-                cur_r = 0
-                for f_state in range(len(P[action][state])):
-                    if P[action][state][f_state] != 0:
-                        cur_r += (P[action][state][f_state] * 
-                        increase_dis(decode_state(state), decode_state(f_state), decode_state(state_num)))
-                if action >= 25 and cur_r != 0:
-                    cur_r += 0.05  
-                R[action][state] = cur_r
-
-        np.save("R" + str(state_num) + ".npy", R)
-"""
-if True:
     R = -np.ones((5**5, len(all_actions)))
     for i in range(5**5):
         if reach_goal(decode_state(i), decode_state(state_num)):
             R[i, -1] = 0
     np.save("R" + str(state_num) + ".npy", R)
-    ql = mdptoolbox.mdp.QLearning(P, R, 1.1, n_iter = 10000) 
-    ql.run()
-    print(ql.Q)
-    print(ql.policy)
-    file_name = str(state_num)+'.npy'
-    np.save(file_name, ql.policy)
-    
+ql = mdptoolbox.mdp.PolicyIteration(P, R, 0.99, max_iter = 80000) 
+ql.run()
+print(ql.iter)
+print(ql.policy)
+file_name = str(state_num)+'.npy'
+np.save(file_name, ql.policy)
+        
 
     
 

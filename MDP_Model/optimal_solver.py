@@ -57,7 +57,10 @@ def increase_dis(initial_state, state, target_state):
         res += state[i] - initial_state[i]
     return res
 
-all_actions = ACTIONS = ['0', '1', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '2', '20', '21', '22', '23', '24', '3', '4', '5', '6', '7', '8', '9', 'AT25', 'AT26', 'AT27', 'AT28', 'AT29', 'AT30', 'AT31', 'AT32', 'AT33', 'AT34', 'AT35', 'AT36', 'AT37', 'AT38', 'AT39', 'Final Exam', 'Prior Assessment Test']
+all_actions = ACTIONS = ['0', '1', '10', '11', '12', '13', '14', '15', '16', 
+'17', '18', '19', '2', '20', '21', '22', '23', '24', '3', '4', '5', '6', '7', 
+'8', '9', 'AT25', 'AT26', 'AT27', 'AT28', 'AT29', 'AT30', 'AT31', 'AT32', 'AT33', 
+'AT34', 'AT35', 'AT36', 'AT37', 'AT38', 'AT39', 'Final Exam', 'Prior Assessment Test']
 with open("./action.txt") as json_file:
     action_dict = json.load(json_file)
     #print(action_dict["actions"])
@@ -100,8 +103,15 @@ state_num = encode_state([4,2,3,1,4])
 #state_num = encode_state([2,3,4,1,3])
 #state_num = encode_state([3,4,2,2,4])
 #state_num = encode_state([2,4,4,4,3])
-"""
-haveR = False
+
+def reach_goal(s, goal):
+    for i in range(NUM_KC):
+        if s[i] < goal[i]:
+            return False
+    return True
+
+
+
 try:
     R = np.load("R" + str(state_num) + ".npy")
     haveR = True
@@ -109,42 +119,15 @@ try:
 
 except:
     print("Genertaing R!")
-
-if True:
-    if not haveR:
-        R = np.zeros((len(all_actions), 5**5))
-        for action in range(len(all_actions)):
-            print(action)
-            for state in range(5**5):
-                cur_r = 0
-                for f_state in range(len(P[action][state])):
-                    if P[action][state][f_state] != 0:
-                        cur_r += (P[action][state][f_state] * 
-                        increase_dis(decode_state(state), decode_state(f_state), decode_state(state_num)))
-                if action >= 25 and cur_r != 0:
-                    cur_r += 0.05  
-                R[action][state] = cur_r
-
-        np.save("R" + str(state_num) + ".npy", R)
-"""
-def reach_goal(s, goal):
-    for i in range(NUM_KC):
-        if s[i] < goal[i]:
-            return False
-    return True
-if True:
     R = -np.ones((5**5, len(all_actions)))
-    """
-    for action in range(len(all_actions)):
-        print action , sum(R[action])
-    """
     for i in range(5**5):
         if reach_goal(decode_state(i), decode_state(state_num)):
             R[i, -1] = 0
-    ql = mdptoolbox.mdp.QLearning(P, R, 1.1, n_iter = 1000000) 
-    ql.run()
-    print(ql.Q)
-    print(ql.policy)
-    file_name = str(state_num)+'optimal.npy'
-    np.save(file_name, ql.policy)
-    
+    np.save("R" + str(state_num) + ".npy", R)
+ql = mdptoolbox.mdp.PolicyIteration(P, R, 0.8,  max_iter = 500) 
+ql.run()
+print(ql.iter)
+print(ql.policy)
+file_name = str(state_num)+'optimal.npy'
+np.save(file_name, ql.policy)
+        
