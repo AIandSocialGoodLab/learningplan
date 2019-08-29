@@ -100,13 +100,9 @@ def update_P(action_index, lo, hi, real_state, related_entry):
 
     return
 
-def increase_dis(initial_state, state, target_state):
+def increase_dis(initial_state, state):
     res = 0
     for i in range(NUM_KC):
-        if initial_state[i] > target_state[i]:
-            initial_state[i] = target_state[i]
-        if state[i] > target_state[i]:
-            state[i] = target_state[i]
         res += state[i] - initial_state[i]
     return res
 
@@ -156,19 +152,6 @@ print(ACTIONS)
 #print(sorted(list(set(all_actions))))
 print(NUM_KC, NUM_ACTIONS)
 
-
-
-state_num = encode_state([4,2,3,1,4])
-#state_num = encode_state([3,4,2,3,4])
-#state_num = encode_state([2,2,4,3,3])
-#state_num = encode_state([4,4,2,3,4])
-#state_num = encode_state([2,2,4,4,3])
-#state_num = encode_state([3,4,2,1,4])
-#state_num = encode_state([4,3,2,3,3])
-#state_num = encode_state([4,4,4,3,4])
-#state_num = encode_state([2,3,4,1,3])
-#state_num = encode_state([3,4,2,2,4])
-#state_num = encode_state([2,4,4,4,3])
 
 haveR = False 
 try:
@@ -232,14 +215,14 @@ except:
 #for state_num in range(LEARNING_GOALS):
 
 try:
-    R = np.load("R" + str(state_num) + ".npy")
+    R = np.load("R_nogoal.npy")
     haveR = True
     print("successfully load R!")
 
 except:
     print("Genertaing R!")
 
-"""
+
 if True:
     if not haveR:
         R = np.zeros((len(all_actions), NUM_KC**5))
@@ -250,24 +233,18 @@ if True:
                 for f_state in range(len(P[action][state])):
                     if P[action][state][f_state] != 0:
                         cur_r += (P[action][state][f_state] * 
-                        increase_dis(decode_state(state), decode_state(f_state), decode_state(state_num)))
+                        increase_dis(decode_state(state), decode_state(f_state)))
                 if action >= 25 and cur_r != 0:
                     cur_r += 0.05  
                 R[action][state] = cur_r
 
-        np.save("R" + str(state_num) + ".npy", R)
-"""
-if True:
-    R = -np.ones((5**5, len(all_actions)))
-    for i in range(5**5):
-        if reach_goal(decode_state(i), decode_state(state_num)):
-            R[i, -1] = 0
-    np.save("R" + str(state_num) + ".npy", R)
-    ql = mdptoolbox.mdp.QLearning(P, R, 1.1, n_iter = 10000) 
+        np.save("R_nogoal.npy", R)
+
+    ql = mdptoolbox.mdp.PolicyIteration(P, R.transpose(), 0.96, n_iter = 10000) 
     ql.run()
     print(ql.Q)
     print(ql.policy)
-    file_name = str(state_num)+'.npy'
+    file_name = 'nogoal.npy'
     np.save(file_name, ql.policy)
     
 
