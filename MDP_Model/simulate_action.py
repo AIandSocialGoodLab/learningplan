@@ -42,7 +42,7 @@ def transit(state, action):
 			if final_state[i] == -1:
 				final_state[i] = state[i]
 	else:
-		print("Prerequisit Not MET")
+		#print("Prerequisit Not MET")
 		final_state = state 
 
 	if  len(all_actions["reveal_plevels"][action]) == 2:

@@ -1,8 +1,11 @@
 import csv, copy, mdptoolbox, json
 import numpy as np
+
 history = []
 actions = []
+
 all_actions = set()
+NUM_PLEVELS = 3
 with open("./action.txt") as json_file:
     action_dict = json.load(json_file)
     related_entries = action_dict["related_entries"]
@@ -21,7 +24,7 @@ def dict2list(s, length):
 def encode_state(state):
     res = 0
     for i in range(len(state)):
-        res += state[i] * 5**(len(state)-1-i)
+        res += state[i] * NUM_PLEVELS**(len(state)-1-i)
     return res
 def decode_state(num):
     res = [0] * NUM_KC
@@ -52,13 +55,14 @@ def process_history(cur_history):
                 cur_state[i] = state[i]
     return lo_l, hi_l
 
-def gen_all_between(lo, hi, related_entry):
+
+def gen_all_between(lo, hi):
     res = [lo]
-    for i in range(NUM_KC):
-        if i in related_entry and lo[i] < hi[i]:
+    for i in range(5):
+        if lo[i] < hi[i]:
             new_lo = copy.deepcopy(lo)
             new_lo[i] = hi[i]
-            cp = gen_all_between(new_lo, hi, related_entry)
+            cp = gen_all_between(new_lo, hi)
             for k in range(lo[i], hi[i]):
                 cur_cp = copy.deepcopy(cp)
                 for j in range(len(cur_cp)):
@@ -67,36 +71,73 @@ def gen_all_between(lo, hi, related_entry):
             break
     return res
 
+
+
 def state_match(s1,s2):
-    for i in range(5):
+    for i in range(NUM_KC):
         if s1[i]!=-1 and s1[i]!=s2[i]:
             return False 
     return True
-def update_P(action_index, lo, hi, real_state, related_entry):
+
+
+def gen_all_paths(trace):
+    lo = trace[0]
+    hi = [-1]*NUM_KC
+    between = trace[1:]
+    all_paths = []
+    if len(between) <= 1:
+        return [trace]
+    else:
+        for state in between:
+            count = 0
+            for i in range(NUM_KC):
+                if hi[i]==-1 and state[i]!=-1:
+                    hi[i] = state[i]
+                    count += 1
+                    if count == NUM_KC:
+                        break
+        all_choices = gen_all_between(lo,hi)
+        for state in all_choices:
+            if state_match(between[0], state):
+                cur_trace = copy.deepcopy(between)
+                cur_trace[0] = state
+                cur_all_paths = gen_all_paths(cur_trace)
+                all_paths += [[lo]+path for path in cur_all_paths]
+
+        return all_paths
+
+def state_match(s1,s2):
+    for i in range(NUM_KC):
+        if s1[i]!=-1 and s1[i]!=s2[i]:
+            return False 
+    return True
+
+def find_all_possibilities(all_paths, actions):
+    state_copy = copy.deepcopy(all_paths)
+    for trace in state_copy:
+        for i in  range(len(trace)):
+            trace[i] = encode_state(trace[i])
+    res = dict()
+
+    for i in range(len(actions)):
+        res[actions[i]] = dict()
+        for trace in state_copy:
+            if trace[i] not in res[actions[i]]:
+                res[actions[i]][trace[i]] = [0]*(NUM_PLEVELS**NUM_KC)
+            res[actions[i]][trace[i]][trace[i+1]] += (1.0/len(state_copy))
+    for action in actions:
+        for trace in res[action]:
+            res[action][trace] = np.asarray(res[action][trace])
+            res[action][trace] *= 1.0/(sum(res[action][trace]))
+    return res
+
+def update_P(action_index, state, state_vec):
     action_count =  ACTION_WEIGHT[action_index]
     w_new = 1.0/(action_count+1)
     w_old = 1 - w_new
     ACTION_WEIGHT[action_index] += 1
 
-    states_between = gen_all_between(lo,hi,[0,1,2,3,4])
-    for state in states_between:
-        all_between = gen_all_between(state, hi, related_entry)
-        p_entries = np.zeros(NUM_KC**5)
-        valid_set = []
-        total = 0
-        for j in range(len(all_between)):
-            cur_between_state = all_between[j]
-            if state_match(real_state, cur_between_state):
-                total += 1
-                valid_set.append(j)
-
-        if total!=0:
-            for index in valid_set:
-                p_entries[encode_state(all_between[index])] = 1.0/total
-                
-        else:
-            p_entries[encode_state(state)] = 1.0
-        P[action_index][encode_state(state)] = w_new * p_entries + w_old * P[action_index][encode_state(state)] 
+    P[action_index][state] = w_new * state_vec + w_old * P[action_index][state] 
 
     return
 
@@ -143,40 +184,34 @@ with open('MDPdatasheet.csv') as csv_file:
                 cur_history = cur_history[:-1]
                 cur_history[-1] = final_state
                 history.append(cur_history)
-                actions.append(cur_action)
+                actions.append(cur_action[1:-1])
             cur_history = [str2list(row[-1])]
             length = len(cur_history[0])
             cur_action = [row[2]]
 
 NUM_KC = length 
-NUM_ACTIONS = len(all_actions)
+
 all_actions = sorted(list(all_actions))
+all_actions.remove("Final Exam")
+all_actions.remove("Prior Assessment Test")
+NUM_ACTIONS = len(all_actions)
 ACTIONS = all_actions
 print(ACTIONS)
 print(NUM_KC, NUM_ACTIONS)
 
 
 
-state_num = encode_state([4,2,3,1,4])
-#state_num = encode_state([3,4,2,3,4])
-#state_num = encode_state([2,2,4,3,3])
-#state_num = encode_state([4,4,2,3,4])
-#state_num = encode_state([2,2,4,4,3])
-#state_num = encode_state([3,4,2,1,4])
-#state_num = encode_state([4,3,2,3,3])
-#state_num = encode_state([4,4,4,3,4])
-#state_num = encode_state([2,3,4,1,3])
-#state_num = encode_state([3,4,2,2,4])
-#state_num = encode_state([2,4,4,4,3])
+state_num = encode_state([2,1,2,2,1])
 
-haveR = False 
+
 try:
     P = np.load("P.npy")
     print("successfully load P!")
 except:
+    print ("start finding P")
     P = []
-    for _ in range(NUM_ACTIONS):
-        P.append(np.identity(NUM_KC**5))
+    for _ in range(NUM_ACTIONS + 1):
+        P.append(np.identity(NUM_PLEVELS**NUM_KC))
     P = np.asarray(P, dtype = np.float64)
     print(P.shape)
     ACTION_WEIGHT = np.zeros(NUM_ACTIONS)
@@ -185,19 +220,15 @@ except:
     for i in range(len(history)):
         print(i)
         cur_history = history[i]
+        all_paths = gen_all_paths(cur_history)
         cur_actions = actions[i]
-        lo_l, hi_l = process_history(cur_history)
-        for j in range(len(cur_history)):
-            action = cur_actions[j]
+        possibilities = find_all_possibilities(all_paths, cur_actions)
+        for action in possibilities:
             action_index = all_actions.index(action)
-            lo, hi = lo_l[j], hi_l[j]
-            if action == "Prior Assessment Test" or action == "Final Exam":
-                related_entry = []
-            else:
-                related_entry = related_entries[action]
-            real_state = cur_history[j]
-            #print(lo, hi , real_state)
-            update_P(action_index, lo, hi, real_state, related_entry)
+            for state in possibilities[action]:
+                state_vec = possibilities[action][state]
+                update_P(action_index,state,state_vec)
+        
 
 
     print(P)
@@ -213,26 +244,34 @@ except:
             
 
 
-
 try:
     R = np.load("R" + str(state_num) + ".npy")
-    haveR = True
     print("successfully load R!")
 
 except:
     print("Genertaing R!")
-    R = -np.ones((5**5, len(all_actions)))
-    for i in range(5**5):
+    R = -np.ones((NUM_PLEVELS**NUM_KC, len(all_actions) + 1))
+    for i in range(NUM_PLEVELS**NUM_KC):
         if reach_goal(decode_state(i), decode_state(state_num)):
             R[i, -1] = 0
+        else:
+            R[i, -1] = -float('Inf')
+
     np.save("R" + str(state_num) + ".npy", R)
-ql = mdptoolbox.mdp.PolicyIteration(P, R, 0.99, max_iter = 80000) 
+print(P.shape, R.shape)
+print(R)
+
+ql = mdptoolbox.mdp.PolicyIteration(P, R, 0.999999, max_iter = 5000) 
 ql.run()
 print(ql.iter)
 print(ql.policy)
 file_name = str(state_num)+'.npy'
 np.save(file_name, ql.policy)
         
+
+    
+
+
 
     
 
